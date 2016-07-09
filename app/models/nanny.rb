@@ -1,0 +1,2 @@
+class Nanny < ApplicationRecord
+end

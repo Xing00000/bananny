@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Nannies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nannies.each do |nanny| %>
+      <tr>
+        <td><%= link_to 'Show', nanny %></td>
+        <td><%= link_to 'Edit', edit_nanny_path(nanny) %></td>
+        <td><%= link_to 'Destroy', nanny, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nanny', new_nanny_path %>
