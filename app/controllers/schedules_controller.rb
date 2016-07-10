@@ -24,17 +24,28 @@ class SchedulesController < ApplicationController
   # POST /schedules
   # POST /schedules.json
   def create
-    @schedule = Schedule.new(schedule_params)
+    @nanny = Nanny.find(params[:nanny_id])
 
-    respond_to do |format|
-      if @schedule.save
-        format.html { redirect_to @schedule, notice: 'Schedule was successfully created.' }
-        format.json { render :show, status: :created, location: @schedule }
-      else
-        format.html { render :new }
-        format.json { render json: @schedule.errors, status: :unprocessable_entity }
+    input = schedule_input_times(schedule_params)
+
+    input.times do |i|
+      if @nanny.schedules.where(:date => schedule_params[:date],:helfhour => start_time_number(schedule_params) + i).first == nil
+        @nanny.schedules.create(:date => schedule_params[:date],:helfhour => start_time_number(schedule_params) + i )
       end
     end
+
+
+    # respond_to do |format|
+    #   if @schedule.save
+    #     format.html { redirect_to @nanny, notice: 'Schedule was successfully created.' }
+    #     format.json { render :show, status: :created, location: @schedule }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @schedule.errors, status: :unprocessable_entity }
+    #   end
+    # end
+
+    redirect_to @nanny, notice: 'Schedule was successfully created.'
   end
 
   # PATCH/PUT /schedules/1
@@ -69,6 +80,12 @@ class SchedulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def schedule_params
-      params.fetch(:schedule, {})
+      params.require(:schedule).permit(:date,:start_time,:end_time)
     end
+
+
+
+
 end
+# search schedule return nanny_id but can not lock
+# Schedule.where("date = '2016-07-10'").where(:helfhour => 16..20).group("nanny_id").count.select {|k,v| v >= 5}.keys

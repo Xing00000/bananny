@@ -1,4 +1,20 @@
 <p id="notice"><%= notice %></p>
 
+<%=form_for @schedule ,:url => nanny_schedules_path(@nanny) do |f|%>
+	<%= f.date_field :date %>
+		<br>
+	開始<%= f.time_select :start_time, :ampm => true, :minute_step => 30 %>
+		<br>
+	結束<%= f.time_select :end_time, :ampm => true, :minute_step => 30 %>
+	<%= f.submit "SUBMIT" ,:class => "btn btn-primary pull-right" %>
+<%end%>
+
+
+<% @nanny_schedule.each do |s|%>
+	<%= s.date %>
+	<%= s.helfhour %>
+	<br>
+<%end%>
+
 <%= link_to 'Edit', edit_nanny_path(@nanny) %> |
 <%= link_to 'Back', nannies_path %>

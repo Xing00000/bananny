@@ -10,6 +10,8 @@ class NanniesController < ApplicationController
   # GET /nannies/1
   # GET /nannies/1.json
   def show
+    @schedule = Schedule.new
+    @nanny_schedule = @nanny.schedules.order(:date,:helfhour)
   end
 
   # GET /nannies/new
