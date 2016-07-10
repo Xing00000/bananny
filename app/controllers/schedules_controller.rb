@@ -33,7 +33,7 @@ class SchedulesController < ApplicationController
         @nanny.schedules.create(:date => schedule_params[:date],:helfhour => start_time_number(schedule_params) + i )
       end
     end
-
+    redirect_to @nanny, notice: 'Schedule was successfully created.'
 
     # respond_to do |format|
     #   if @schedule.save
@@ -45,7 +45,7 @@ class SchedulesController < ApplicationController
     #   end
     # end
 
-    redirect_to @nanny, notice: 'Schedule was successfully created.'
+
   end
 
   # PATCH/PUT /schedules/1
@@ -89,3 +89,5 @@ class SchedulesController < ApplicationController
 end
 # search schedule return nanny_id but can not lock
 # Schedule.where("date = '2016-07-10'").where(:helfhour => 16..20).group("nanny_id").count.select {|k,v| v >= 5}.keys
+
+# Schedule.where("date = '2016-07-10'").where(:helfhour => 16..20).group("nanny_id").having("count(helfhour) >= ?",5)
