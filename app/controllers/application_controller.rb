@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def search_nanny(params)
-		nanies = Schedule.where("date = '#{params[:date]}'").where(:helfhour => start_time_number(params[:start_time])..end_time_number(params[:end_time])).group("nanny_id").count.select {|k,v| v >= helfhour_times(params)}.keys
+		nanies = Schedule.where(:date => params[:date]).where(:helfhour => start_time_number(params[:start_time])..end_time_number(params[:end_time])).group("nanny_id").count.select {|k,v| v >= helfhour_times(params)}.keys
 		Nanny.find(nanies)
 	end
 end
