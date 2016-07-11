@@ -1,3 +1,3 @@
-class Nanny < ApplicationRecord
-	has_many :schedules
+class Nanny < Profile
+	has_many :schedules , :dependent => :destroy
 end
