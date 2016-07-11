@@ -10,11 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160710042437) do
+ActiveRecord::Schema.define(version: 20160711170440) do
 
-  create_table "nannies", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "profiles", force: :cascade do |t|
+    t.string   "type"
+    t.string   "last_name"
+    t.string   "frist_name"
+    t.string   "nickname"
+    t.string   "gender"
+    t.string   "mobile_phone"
+    t.string   "phone"
+    t.datetime "birthdate"
+    t.string   "city"
+    t.string   "district"
+    t.text     "address"
+    t.integer  "user_id"
+    t.string   "image"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["mobile_phone"], name: "index_profiles_on_mobile_phone", unique: true
   end
 
   create_table "schedules", force: :cascade do |t|
