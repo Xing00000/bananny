@@ -12,6 +12,18 @@
   <% end %>
 
   <div class="actions">
+    <%= f.text_field :last_name ,:required => :true ,:placeholder => "Last name" ,:autocomplete => :on %>
+    <%= f.text_field :frist_name ,:required => :true ,:placeholder => "First name" ,:autocomplete => :on %>
+    <%= f.text_field :nickname ,:required => :true ,:placeholder => "Nick name" ,:autocomplete => :on %>
+    <%= f.select :gender ,Profile::GENDER %>
+    <%= f.date_field :birthdate,:required => true %>
+    <%= f.text_field :mobile_phone ,:required => :true ,:placeholder => "mobile_phone" ,:autocomplete => :on %>
+    <%= f.text_field :phone ,:required => :true ,:placeholder => "tel" ,:autocomplete => :on %>
+    <%= f.select :city ,Profile::CITY %>
+    <%= f.select :district ,Profile::DISTRICT %>
+    <%= f.text_field :address ,:required => :true ,:placeholder => "address" ,:autocomplete => :on %>
+
+
     <%= f.submit %>
   </div>
 <% end %>
