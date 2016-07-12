@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+  </tbody>
+</table>
+
+<br>
+<%= form_tag root_path ,:method => :get do %>
+  <%= date_field_tag :date,{},:required => true, :autofocus => true  %>
+  <%= time_select :start_time,:start_time, {:ampm => true, :minute_step => 30} %>
+  <%= time_select :end_time,:end_time, {:ampm => true, :minute_step => 30 }%>
+  <%= submit_tag "SUBMIT" ,:class => "btn btn-primary" %>
+<% end %>
+
+<% if @search_nanny %>
+  <h2>搜尋結果</h2>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+        <tbody>
+        <% @search_nanny.each do |nanny| %>
+          <tr>
+            <td>ID<%= nanny.id %></td>
+            <td><%= link_to 'Show', nanny %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+<%end%>
+

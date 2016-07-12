@@ -5,9 +5,6 @@ class NanniesController < ApplicationController
   # GET /nannies.json
   def index
 
-    if params[:date] != nil && params[:start_time] != nil
-      @search_nanny = search_nanny(params)
-    end
     @nannies = Nanny.all
 
   end
