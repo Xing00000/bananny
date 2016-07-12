@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users
+  resources :users do
+  	resources :nannies
+  end
   resources :nannies do
   	resources :schedules
 	end

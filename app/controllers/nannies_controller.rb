@@ -4,9 +4,7 @@ class NanniesController < ApplicationController
   # GET /nannies
   # GET /nannies.json
   def index
-
     @nannies = Nanny.all
-
   end
 
   # GET /nannies/1
@@ -28,7 +26,7 @@ class NanniesController < ApplicationController
   # POST /nannies
   # POST /nannies.json
   def create
-    @nanny = Nanny.new(nanny_params)
+    @nanny = current_user.build_nanny(nanny_params)
 
     respond_to do |format|
       if @nanny.save
@@ -73,7 +71,7 @@ class NanniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def nanny_params
-      params.fetch(:nanny, {})
+      params.require(:nanny).permit(:last_name,:frist_name,:nickname,:gender,:birthdate,:mobile_phone,:phone,:city,:district,:address)
     end
 
 end

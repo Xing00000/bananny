@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_one :nanny
   has_one :parent
 
+
+  def registered?
+  	self.parent || self.nanny
+  end
 end

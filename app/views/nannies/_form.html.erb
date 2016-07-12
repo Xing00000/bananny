@@ -1,10 +1,10 @@
-<%= form_for(nanny) do |f| %>
-  <% if nanny.errors.any? %>
+<%= form_for(profile) do |f| %>
+  <% if profile.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(nanny.errors.count, "error") %> prohibited this nanny from being saved:</h2>
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
 
       <ul>
-      <% nanny.errors.full_messages.each do |message| %>
+      <% profile.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,6 +12,18 @@
   <% end %>
 
   <div class="actions">
+    <%= f.text_field :last_name ,:required => :true ,:placeholder => "Last name" ,:autocomplete => :on %>
+    <%= f.text_field :frist_name ,:required => :true ,:placeholder => "First name" ,:autocomplete => :on %>
+    <%= f.text_field :nickname ,:required => :true ,:placeholder => "Nick name" ,:autocomplete => :on %>
+    <%= f.select :gender ,Profile::GENDER %>
+    <%= f.date_field :birthdate,:required => true %>
+    <%= f.text_field :mobile_phone ,:required => :true ,:placeholder => "mobile_phone" ,:autocomplete => :on %>
+    <%= f.text_field :phone ,:required => :true ,:placeholder => "tel" ,:autocomplete => :on %>
+    <%= f.select :city ,Profile::CITY %>
+    <%= f.select :district ,Profile::DISTRICT %>
+    <%= f.text_field :address ,:required => :true ,:placeholder => "address" ,:autocomplete => :on %>
+
+
     <%= f.submit %>
   </div>
 <% end %>
