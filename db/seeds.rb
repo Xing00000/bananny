@@ -10,3 +10,4 @@
   Profile.all
   User.first.create_parent!
   User.last.create_nanny!
+  Parent.first.childs.create!

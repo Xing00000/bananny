@@ -1,8 +1,9 @@
 class Profile < ApplicationRecord
-	belongs_to :user
+
 end
 
-class Parent < Profile
+class Child < Profile
+	belongs_to :parent
 end
 
 

@@ -13,6 +13,7 @@ class CreateProfiles < ActiveRecord::Migration[5.0]
     	t.string :district
     	t.text :address
     	t.integer :user_id
+        t.integer :parent_id
         t.string :image
       t.timestamps
     end
