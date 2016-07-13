@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160713031010) do
+ActiveRecord::Schema.define(version: 20160713091321) do
+
+  create_table "infos", force: :cascade do |t|
+    t.integer  "nanny_id"
+    t.integer  "weekday_charge"
+    t.integer  "holiday_charge"
+    t.integer  "special_charge"
+    t.text     "def_special"
+    t.text     "special"
+    t.text     "introduction"
+    t.integer  "min_hour"
+    t.integer  "case_done"
+    t.datetime "since"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["nanny_id"], name: "index_infos_on_nanny_id"
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.string   "type"
