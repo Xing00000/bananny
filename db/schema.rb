@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160713092447) do
+ActiveRecord::Schema.define(version: 20160713094617) do
 
   create_table "cases", force: :cascade do |t|
     t.string   "emergency_number"
@@ -67,6 +67,20 @@ ActiveRecord::Schema.define(version: 20160713092447) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["mobile_phone"], name: "index_profiles_on_mobile_phone", unique: true
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "case_id"
+    t.integer  "rater_id"
+    t.integer  "rated_id"
+    t.integer  "item_id"
+    t.text     "feedback"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["case_id"], name: "index_ratings_on_case_id"
+    t.index ["item_id"], name: "index_ratings_on_item_id"
+    t.index ["rated_id"], name: "index_ratings_on_rated_id"
+    t.index ["rater_id"], name: "index_ratings_on_rater_id"
   end
 
   create_table "schedules", force: :cascade do |t|
