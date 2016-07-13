@@ -71,7 +71,7 @@ class NanniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def nanny_params
-      params.require(:nanny).permit(:last_name,:frist_name,:nickname,:gender,:birthdate,:mobile_phone,:phone,:city,:district,:address)
+      params.require(:nanny).permit(:last_name,:first_name,:nickname,:gender,:birthdate,:mobile_phone,:phone,:city,:district,:address,:image)
     end
 
 end
