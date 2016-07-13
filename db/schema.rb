@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711170440) do
+ActiveRecord::Schema.define(version: 20160713031010) do
 
   create_table "profiles", force: :cascade do |t|
     t.string   "type"
     t.string   "last_name"
-    t.string   "frist_name"
+    t.string   "first_name"
     t.string   "nickname"
     t.string   "gender"
     t.string   "mobile_phone"
