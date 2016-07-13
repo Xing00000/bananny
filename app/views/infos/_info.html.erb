@@ -1,0 +1,17 @@
+<%= form_for info do |f| %>
+
+  <div class="actions">
+    <%= f.number_field :weekday_charge ,:required => :true ,:placeholder => "weekday_charge" ,in: 100..1500, step: 50 %>
+    <%= f.number_field :holiday_charge ,:required => :true ,:placeholder => "holiday_charge" ,in: 100..1500, step: 50 %>
+    <%= f.number_field :special_charge ,:required => :true ,:placeholder => "special_charge",in: 100..1500, step: 50 %>
+    <%= f.number_field :min_hour ,:required => :true ,:placeholder => "min_hour" ,in: 0.5..12, step: 0.5  %>
+
+    <%= f.text_area :def_special,:placeholder => "def_special" %>
+    <%= f.text_area :special,:placeholder => "special" %>
+    <%= f.text_area :introduction ,:required => :true ,:placeholder => "introduction" %>
+
+    <%= f.date_field :since ,:required => true %>
+
+    <%= f.submit %>
+  </div>
+<% end %>

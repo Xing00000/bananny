@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   end
   resources :nannies do
   	resources :schedules
-	end
+  end
+  resources :infos
+
 
   root "users#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -12,6 +12,7 @@ class NanniesController < ApplicationController
   def show
     @schedule = Schedule.new
     @nanny_schedule = @nanny.schedules.order(:date,:helfhour)
+
   end
 
   # GET /nannies/new
