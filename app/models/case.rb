@@ -3,4 +3,5 @@ class Case < ApplicationRecord
 	belongs_to :nanny
 	belongs_to :child
 	has_many :ratings
+	has_many :comments
 end
