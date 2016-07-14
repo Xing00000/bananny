@@ -1,3 +1,4 @@
+
 <h1>搜尋保母</h1>
 
 
@@ -20,5 +21,9 @@
 <% if current_user && current_user.registered? == nil%>
   <%= link_to "保母註冊",new_user_nanny_path(current_user),:class => "btn btn-primary"%>
   <%= link_to "爸媽註冊",new_user_parent_path(current_user),:class => "btn btn-primary"%>
+
 <% end %>
 
+<% if current_user %>
+  <%= link_to "個人資料",current_user.profile,:class => "btn btn-primary"%>
+<%end%>
