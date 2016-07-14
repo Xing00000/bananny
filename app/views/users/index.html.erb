@@ -11,12 +11,14 @@
 <% end %>
 
 <% if @search_nanny %>
+<%#@search_nanny = []%>
 
   <%= render 'result', :search_nanny => @search_nanny %>
 
 <%end%>
 
 <% if current_user && current_user.registered? == nil%>
-  <%= link_to "註冊保母",new_user_nanny_path(current_user),:class => "btn btn-primary"%>
+  <%= link_to "保母註冊",new_user_nanny_path(current_user),:class => "btn btn-primary"%>
+  <%= link_to "爸媽註冊",new_user_parent_path(current_user),:class => "btn btn-primary"%>
 <% end %>
 

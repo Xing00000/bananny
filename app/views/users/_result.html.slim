@@ -2,17 +2,20 @@ h2 = "搜尋結果"
 
 .row
   -search_nanny.each do |nanny|
-    .col-md-4.col-xs-12
+    .col-md-12.col-xs-12
       .thumbnail.well
-        img src="#{nanny.image.url}" class="img-circle"
-        .caption
+        .media-left
+          img src="#{nanny.image.medium.url}" class="img-circle"
+        .media-body
+          .caption
           |ID:#{nanny.id}
 
           h4 = "#{nanny.first_name} #{nanny.last_name}"
           p = "#{nanny.info}"
-          - if current_user
-            =link_to '了解我', nanny ,:class => "btn btn-primary"
-          - else
-            =link_to('註冊', new_registration_path(:user),:class => "btn btn-primary")
-            =link_to('登入', new_session_path(:user),:class => "btn btn-primary")
+          .btn-group.pull-right
+            - if current_user
+              =link_to '了解我', nanny ,:class => "btn btn-primary"
+            - else
+              =link_to('註冊', new_registration_path(:user),:class => "btn btn-primary")
+              =link_to('登入', new_session_path(:user),:class => "btn btn-primary")
 
