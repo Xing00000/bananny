@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :nannies do
   	resources :schedules
   end
-  resources :infos
+  resources :infos ,only: [:edit,:update]
 
 
   root "users#index"

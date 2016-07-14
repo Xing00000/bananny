@@ -27,6 +27,19 @@ class InfosController < ApplicationController
     end
   end
 
+  def update
+    @info = current_user.nanny.info
+    respond_to do |format|
+      if @info.update(info_params)
+        format.html { redirect_to @nanny, notice: 'info was successfully updated.' }
+        format.json { render :show, status: :ok, location: @nanny }
+      else
+        format.html { render :edit }
+        format.json { render json: @nanny.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 	private
     def set_nanny
       @nanny = Nanny.find(params[:id])
