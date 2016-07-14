@@ -1,0 +1,17 @@
+    <% f = profile%>
+    <%= f.last_name %>
+    <%= f.first_name %>
+    <%= f.nickname %>
+    <%= f.gender %>
+    <%= f.birthdate %>
+    <%= f.mobile_phone %>
+    <%= f.phone %>
+    <%= f.city%>
+    <%= f.district%>
+    <%= f.address%>
+    <%if f["image"]%>
+        <%= image_tag f.image.medium.url %>
+    <%end%>
+
+
+

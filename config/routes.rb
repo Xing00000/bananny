@@ -9,9 +9,13 @@ Rails.application.routes.draw do
   resources :nannies do
   	resources :schedules
   end
-  resources :parents
-  resources :infos ,only: [:create,:edit,:update]
 
+
+  resources :infos ,only: [:create,:edit,:update]
+  resources :parents do
+    resources :children ,only: [:new]
+  end
+  resources :children ,only: [:create,:update,:edit]
 
   root "users#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

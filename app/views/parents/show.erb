@@ -4,7 +4,7 @@
 <%= @parent.first_name %>
 
 <%if @parent["image"]%>
-	<%= image_tag @parent.image.medium.url %>
+	<%= image_tag @parent.image.url %>
 <%end%>
 
 	<%= link_to "EDIT",edit_parent_path(@parent),:class => "btn btn-primary"%>
@@ -12,6 +12,15 @@
 <h2>Child</h2>
 
 
+<%if @parent.children%>
+	<% @parent.children.each do |child| %>
+		<%= render :partial => "shared/profile_show",:locals => { profile: child} %>
+		<%= link_to "修改小孩資料",edit_child_path(child),:class => "btn btn-primary"%>
+	<%end%>
+<%end%>
+
+
+<%= link_to "建立小孩資料",new_parent_child_path(@parent),:class => "btn btn-primary"%>
 
 
 
