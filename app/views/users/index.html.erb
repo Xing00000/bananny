@@ -1,4 +1,4 @@
-<h1>Users</h1>
+<h1>搜尋保母</h1>
 
 
 
@@ -11,17 +11,9 @@
 <% end %>
 
 <% if @search_nanny %>
-  <h2>搜尋結果</h2>
-    <table>
-      <tbody>
-        <% @search_nanny.each do |nanny| %>
-          <tr>
-            <td>ID<%= nanny.id %></td>
-            <td><%= link_to 'Show', nanny %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+
+  <%= render 'result', :search_nanny => @search_nanny %>
+
 <%end%>
 
 <% if current_user && current_user.registered? == nil%>

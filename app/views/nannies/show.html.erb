@@ -18,15 +18,17 @@
 	<%= image_tag @nanny.image.medium.url %>
 <%end%>
 
-<%= link_to "EDIT",edit_nanny_path(@nanny),:class => "btn btn-primary"%>
+	<%= link_to "EDIT",edit_nanny_path(@nanny),:class => "btn btn-primary"%>
 
 <h2>Info</h2>
-<%= link_to "EDIT",edit_info_path(@nanny),:class => "btn btn-primary"%>
+
+
+	<%= link_to "EDIT",edit_info_path(@nanny),:class => "btn btn-primary"%>
+
 <%if @nanny.info%>
 	<%= @nanny.info.weekday_charge %>
 	<%= @nanny.info.holiday_charge %>
 <%end%>
-
 
 
 <h2>Schedule</h2>

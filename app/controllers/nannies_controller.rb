@@ -44,7 +44,7 @@ class NanniesController < ApplicationController
   # PATCH/PUT /nannies/1.json
   def update
     respond_to do |format|
-      if @nanny.update(nanny_params)
+      if current_user.nanny.update(nanny_params)
         format.html { redirect_to @nanny, notice: 'Nanny was successfully updated.' }
         format.json { render :show, status: :ok, location: @nanny }
       else
