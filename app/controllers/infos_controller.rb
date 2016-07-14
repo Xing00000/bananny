@@ -1,6 +1,6 @@
 class InfosController < ApplicationController
 
-  before_action :set_nanny, only: [:edit, :update]
+  before_action :set_nanny, only: [:edit]
 
 	def edit
 		unless @nanny.info
@@ -31,7 +31,7 @@ class InfosController < ApplicationController
     @info = current_user.nanny.info
     respond_to do |format|
       if @info.update(info_params)
-        format.html { redirect_to @nanny, notice: 'info was successfully updated.' }
+        format.html { redirect_to current_user.nanny, notice: 'info was successfully updated.' }
         format.json { render :show, status: :ok, location: @nanny }
       else
         format.html { render :edit }
