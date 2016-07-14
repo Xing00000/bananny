@@ -1,5 +1,5 @@
 class Parent < Profile
-	belongs_to :user
-	has_many :childs
+	has_many :children
 	has_many :cases
+	belongs_to :user
 end

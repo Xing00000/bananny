@@ -6,9 +6,11 @@ class User < ApplicationRecord
 
   has_one :nanny
   has_one :parent
+  has_one :profile
 
 
   def registered?
   	self.parent || self.nanny
   end
+
 end
