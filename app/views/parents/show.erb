@@ -1,0 +1,19 @@
+<h2>Praent</h2>
+
+<%= @parent.last_name %>
+<%= @parent.first_name %>
+
+<%if @parent["image"]%>
+	<%= image_tag @parent.image.medium.url %>
+<%end%>
+
+	<%= link_to "EDIT",edit_parent_path(@parent),:class => "btn btn-primary"%>
+
+<h2>Child</h2>
+
+
+
+
+
+
+<%= link_to 'Back', root_path %>
