@@ -1,6 +1,5 @@
 <h1>Editing Nanny</h1>
 
-<%= render 'form', profile: @nanny %>
+<%= render :partial => "shared/profile_form",:locals => { profile: @nanny} %>
 
-<%= link_to 'Show', @nanny %> |
-<%= link_to 'Back', nannies_path %>
+<%= link_to 'Back', @nanny %>

@@ -17,7 +17,7 @@ class NanniesController < ApplicationController
 
   # GET /nannies/new
   def new
-    @nanny = Nanny.new
+    @nanny = current_user.build_nanny
   end
 
   # GET /nannies/1/edit
