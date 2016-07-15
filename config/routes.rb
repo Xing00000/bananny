@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   end
   resources :nannies do
   	resources :schedules
+    resources :cases ,only: [:create]
   end
-
+  resources :cases
 
   resources :infos ,only: [:create,:edit,:update]
   resources :parents do

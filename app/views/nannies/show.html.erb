@@ -1,21 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<%=form_for @schedule ,:url => nanny_schedules_path(@nanny) do |f|%>
-	<%= f.date_field :date %>
-		<br>
-	開始<%= f.time_select :start_time, :ampm => true, :minute_step => 30 %>
-		<br>
-	結束<%= f.time_select :end_time, :ampm => true, :minute_step => 30 %>
-	<%= f.submit "SUBMIT" ,:class => "btn btn-primary pull-right" %>
-<%end%>
+
 
 <h2>Profile</h2>
-
+<%= link_to "私訊",nanny_cases_path(@nanny),:method => :post,:class => "btn-lg btn-danger pull-right"%>
+<br>
 <%= @nanny.last_name %>
 <%= @nanny.first_name %>
 
 <%if @nanny["image"]%>
-	<%= image_tag @nanny.image.medium.url %>
+	<%= image_tag @nanny.image.url ,:class => "img-thumbnail" %>
 <%end%>
 
 	<%= link_to "EDIT",edit_nanny_path(@nanny),:class => "btn btn-primary"%>
@@ -30,13 +24,15 @@
 	<%= @nanny.info.holiday_charge %>
 <%end%>
 
+<div id="schedule">
+	<div id="bulid-schedule">
+		<%= render "shared/build_schedule", {:build_schedule => @schedule ,:nanny => @nanny } %>
+	</div>
+	<div id="show-schedule">
+		<%= render "shared/schedule", :schedule => @nanny_schedule %>
+	</div>
+</div>
 
-<h2>Schedule</h2>
-<% @nanny_schedule.each do |s|%>
-	<%= s.date %>
-	<%= s.helfhour %>
-	<br>
-<%end%>
 
 <%= link_to 'Edit', edit_nanny_path(@nanny) %> |
 <%= link_to 'Back', nannies_path %>
