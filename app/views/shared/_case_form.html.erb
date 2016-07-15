@@ -1,0 +1,15 @@
+
+<%= form_for(cases) do |f| %>
+  <div class="actions">
+    <%= f.text_field :emergency_number,:required => :true ,:placeholder => "緊急聯絡電話" ,:autocomplete => :on  %>
+    <%= f.text_field :emergency_name,:required => :true ,:placeholder => "緊急聯絡人" ,:autocomplete => :on  %>
+    <%= f.select :city ,Profile::CITY %>
+    <%= f.select :district ,Profile::DISTRICT %>
+    <%= f.text_field :address ,:required => :true ,:placeholder => "" ,:autocomplete => :on %>
+    <%= f.text_field :comment ,:required => :true ,:placeholder => "" ,:autocomplete => :on %>
+    <%= f.submit %>
+  </div>
+<% end %>
+    <%= session["search_nanny"] %>
+
+
