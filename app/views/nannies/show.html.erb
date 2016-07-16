@@ -29,10 +29,11 @@
 		<%= render "shared/build_schedule", {:build_schedule => @schedule ,:nanny => @nanny } %>
 	</div>
 	<div id="show-schedule">
-		<%= render "shared/schedule", :schedule => @nanny_schedule %>
+		<%= render "shared/schedule", :nanny => @nanny %>
 	</div>
 </div>
 
 
 <%= link_to 'Edit', edit_nanny_path(@nanny) %> |
 <%= link_to 'Back', nannies_path %>
+

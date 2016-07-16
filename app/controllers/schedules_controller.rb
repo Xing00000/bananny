@@ -26,27 +26,52 @@ class SchedulesController < ApplicationController
   def create
     @nanny = Nanny.find(params[:nanny_id])
 
-    input = schedule_input_times(schedule_params)
 
-    input.times do |i|
-      if @nanny.schedules.where(:date => schedule_params[:date],:helfhour => start_time_number(schedule_params) + i).first == nil
-        @nanny.schedules.create(:date => schedule_params[:date],:helfhour => start_time_number(schedule_params) + i )
-      end
-    end
-    redirect_to @nanny, notice: 'Schedule was successfully created.'
+    # input = count_input_times(schedule_params)
 
-    # respond_to do |format|
-    #   if @schedule.save
-    #     format.html { redirect_to @nanny, notice: 'Schedule was successfully created.' }
-    #     format.json { render :show, status: :created, location: @schedule }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @schedule.errors, status: :unprocessable_entity }
-    #   end
+    # input.times do |s|
+    #   @nanny.schedules.create()
     # end
 
 
+    # redirect_to @nanny, notice: 'Schedule was successfully created.'
+
+
+
   end
+
+  def db_action
+    @nanny = Nanny.find(params[:nanny_id])
+    mode = params["!nativeeditor_status"]
+    id = params["id"]
+    start_date = params["start_date"]
+    end_date = params["end_date"]
+    text = params["text"]
+
+    case mode
+      when "inserted"
+        schedule = @nanny.schedules.create :start_date => start_date, :end_date => end_date, :text => text
+        tid = schedule.id
+
+      when "deleted"
+        Schedule.find(id).destroy
+        tid = id
+
+      when "updated"
+        schedule = Schedule.find(id)
+        schedule.start_date = start_date
+        schedule.end_date = end_date
+        schedule.text = text
+        schedule.save
+        tid = id
+    end
+
+   render :json => {
+              :type => mode,
+              :sid => id,
+              :tid => tid,
+          }
+ end
 
   # PATCH/PUT /schedules/1
   # PATCH/PUT /schedules/1.json
@@ -80,7 +105,7 @@ class SchedulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def schedule_params
-      params.require(:schedule).permit(:date,:start_time,:end_time)
+      params.require(:schedule).permit(:start_at,:end_at)
     end
 
 

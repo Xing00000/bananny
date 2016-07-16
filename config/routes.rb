@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :nannies do
   	resources :schedules
     resources :cases ,only: [:create]
+    member do
+      get  :data
+    end
   end
   resources :cases
 
@@ -17,6 +20,8 @@ Rails.application.routes.draw do
     resources :children ,only: [:new]
   end
   resources :children ,only: [:create,:update,:edit]
+
+  match ":nanny_id/schedules", :to => "schedules#db_action", :as => "db_action", :via => "get"
 
   root "users#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
