@@ -25,19 +25,20 @@ class SchedulesController < ApplicationController
   # POST /schedules.json
   def create
     @nanny = Nanny.find(params[:nanny_id])
+    input = (schedule_params[:end_date].to_time-schedule_params[:start_date].to_time)/1800
+    start_date = schedule_params[:start_date].to_time(:utc)
 
+    time1 = 0
+    time2 = 1800
 
-    # input = count_input_times(schedule_params)
-
-    # input.times do |s|
-    #   @nanny.schedules.create()
-    # end
-
-
-    # redirect_to @nanny, notice: 'Schedule was successfully created.'
-
-
-
+    input.to_i.times do |s|
+      if @nanny.schedules.where(:start_date => (start_date+time1),:end_date => (start_date+time2)).first == nil
+        @nanny.schedules.create(:start_date => (start_date+time1),:end_date => (start_date+time2))
+      end
+      time1 += 1800
+      time2 += 1800
+    end
+    redirect_to @nanny, notice: 'Schedule was successfully created.'
   end
 
   def db_action
@@ -50,7 +51,8 @@ class SchedulesController < ApplicationController
 
     case mode
       when "inserted"
-        schedule = @nanny.schedules.create :start_date => start_date, :end_date => end_date, :text => text
+        schedule = @nanny.schedules.create :start_date => start_date, :end_date => end_date
+
         tid = schedule.id
 
       when "deleted"
@@ -105,7 +107,7 @@ class SchedulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def schedule_params
-      params.require(:schedule).permit(:start_at,:end_at)
+      params.require(:schedule).permit(:start_date,:end_date)
     end
 
 
@@ -116,3 +118,5 @@ end
 # Schedule.where("date = '2016-07-10'").where(:helfhour => 16..20).group("nanny_id").count.select {|k,v| v >= 5}.keys
 
 # Schedule.where("date = '2016-07-10'").where(:helfhour => 16..20).group("nanny_id").having("count(helfhour) >= ?",5)
+#20160716 give up 分段搜尋寫不出來
+#Schedule.where("start_date<=? and end_date >= ?","2016-07-16 05:00:00","2016-07-16 06:00:00").group(:nanny_id).count.select {|k,v| v < 2}.keys
