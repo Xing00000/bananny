@@ -25,7 +25,7 @@ class SchedulesController < ApplicationController
   # POST /schedules.json
   def create
     @nanny = Nanny.find(params[:nanny_id])
-    input = (schedule_params[:end_date].to_time-schedule_params[:start_date].to_time)/1800
+    input = count_input_times(schedule_params)
     start_date = schedule_params[:start_date].to_time(:utc)
 
     time1 = 0

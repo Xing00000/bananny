@@ -4,12 +4,9 @@
 
 
 <br>
-<%= form_tag root_path ,:method => :get do %>
-  <%= date_field_tag :date,{},:required => true, :autofocus => true  %>
-  <%= time_select :start_time,:start_time, {:ampm => true, :minute_step => 30} %>
-  <%= time_select :end_time,:end_time, {:ampm => true, :minute_step => 30 }%>
-  <%= submit_tag "SUBMIT" ,:class => "btn btn-primary" %>
-<% end %>
+<div id="search_nanny">
+	<%= render 'search'%>
+</div>
 
 <% if @search_nanny %>
 <%#@search_nanny = []%>

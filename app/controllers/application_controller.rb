@@ -18,9 +18,11 @@ class ApplicationController < ActionController::Base
 	# def helfhour_times(params)
 	# 	end_time_number(params[:end_time])-start_time_number(params[:start_time])
 	# end
-
-	# def search_nanny(params)
-	# 	nanies = Schedule.where(:date => params[:date]).where(:helfhour => start_time_number(params[:start_time])..end_time_number(params[:end_time])).group("nanny_id").count.select {|k,v| v >= helfhour_times(params)}.keys
-	# 	Nanny.find(nanies)
-	# end
+	def count_input_times(params)
+		(params[:end_date].to_time-params[:start_date].to_time)/1800
+	end
+	def search_nanny(params)
+	 	nanies = Schedule.where("start_date>=? and start_date < ?",params[:start_date].to_time(:utc),params[:end_date].to_time(:utc)).group(:nanny_id).count.select {|k,v| v >= count_input_times(params)}.keys
+		Nanny.find(nanies)
+	end
 end
