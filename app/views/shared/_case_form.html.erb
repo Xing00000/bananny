@@ -1,3 +1,4 @@
+<%= image_tag cases.nanny.image.url ,:class => "img-thumbnail" %>
 
 <%= form_for(cases) do |f| %>
   <div class="actions">
@@ -6,10 +7,18 @@
     <%= f.select :city ,Profile::CITY %>
     <%= f.select :district ,Profile::DISTRICT %>
     <%= f.text_field :address ,:required => :true ,:placeholder => "" ,:autocomplete => :on %>
-    <%= f.text_field :comment ,:required => :true ,:placeholder => "" ,:autocomplete => :on %>
+    <br>備註<%= f.text_field :comment ,:required => :true ,:placeholder => "" ,:autocomplete => :on %>
     <%= f.submit %>
   </div>
+
 <% end %>
-    <%= session["search_nanny"] %>
+    拖育日期 <%= cases.start_date.to_date %><br>
+    拖育時間 <%= cases.start_date.to_time.to_formatted_s(:time) %> ~
+    <%= cases.end_date.to_time.to_formatted_s(:time) %>
+    <%= (cases.end_date.to_time - cases.start_date.to_time)/3600 %> /HR<br>
+    <%= cases.nanny.last_name %>保母 <br>
+    每小時收費 <%= cases.charge_per_hour %> <br>
+
+
 
 

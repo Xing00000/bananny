@@ -3,7 +3,11 @@
 
 
 <h2>Profile</h2>
-<%= link_to "私訊",nanny_cases_path(@nanny),:method => :post,:class => "btn-lg btn-danger pull-right"%>
+<% if @nanny.info %>
+	<%= link_to "私訊",nanny_cases_path(@nanny),:method => :post,:class => "btn-lg btn-danger pull-right"%>
+	<%else%>
+	資料煤田完不能預約
+<%end %>
 <br>
 <%= @nanny.last_name %>
 <%= @nanny.first_name %>
