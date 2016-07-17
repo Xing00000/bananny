@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160713111717) do
+ActiveRecord::Schema.define(version: 20160716093614) do
 
   create_table "cases", force: :cascade do |t|
     t.string   "emergency_number"
@@ -102,10 +102,12 @@ ActiveRecord::Schema.define(version: 20160713111717) do
 
   create_table "schedules", force: :cascade do |t|
     t.integer  "nanny_id"
-    t.date     "date"
-    t.integer  "helfhour"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "text"
+    t.integer  "case_id"
     t.index ["nanny_id"], name: "index_schedules_on_nanny_id"
   end
 

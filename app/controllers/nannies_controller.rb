@@ -1,5 +1,5 @@
 class NanniesController < ApplicationController
-  before_action :set_nanny, only: [:show, :edit, :update, :destroy]
+  before_action :set_nanny, only: [:show, :edit, :update, :destroy,:data]
 
   # GET /nannies
   # GET /nannies.json
@@ -11,8 +11,19 @@ class NanniesController < ApplicationController
   # GET /nannies/1.json
   def show
     @schedule = Schedule.new
-    @nanny_schedule = @nanny.schedules.order(:date,:helfhour)
+    @nanny_schedule = @nanny.schedules
 
+  end
+
+  def data
+    schedules = @nanny.schedules.all
+
+    render :json => schedules.map {|schedule| {
+                :id => schedule.id,
+                :start_date => schedule.start_date.to_formatted_s(:db),
+                :end_date => schedule.end_date.to_formatted_s(:db),
+                :text => schedule.text
+            }}
   end
 
   # GET /nannies/new
