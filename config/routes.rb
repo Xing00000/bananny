@@ -13,8 +13,9 @@ Rails.application.routes.draw do
       get  :data
     end
   end
-  resources :cases
-
+  resources :cases do
+    resources :comments,only: [:create,:update]
+  end
   resources :infos ,only: [:create,:edit,:update]
   resources :parents do
     resources :children ,only: [:new]

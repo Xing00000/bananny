@@ -1,0 +1,12 @@
+<%comments.each do |c|%>
+
+	<div class="media ">
+		<div class="media-left ">
+			<%= image_tag c.user.profile.image.thumb.url,:class => "img-circle" %>
+		</div>
+		<div class="media-body">
+		  <h4 class="media-heading"> <%=c.comment%></h4>
+ 		</div>
+	</div>
+
+<%end%>

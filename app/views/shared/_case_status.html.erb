@@ -1,0 +1,29 @@
+<div class="btngroup">
+        <%if user = current_user.profile %>
+            <% if user.type == "Parent" %>
+                <%= link_to "取消",case_path(cases,:case =>{:status => "cancel"}),:method => :patch,:class => "btn-lg btn-danger pull-right"%>
+                <%case cases.status%>
+                <% when "build" %>
+                    <%= link_to "預約",case_path(cases,:case =>{:status => "booking"}),:method => :patch,:class => "btn-lg btn-primary pull-right"%>
+                <% when "booking" %>
+                    <button type="button" class="btn btn-lg btn-primary pull-right disabled" role="button">預約中...</button>
+                <% when "success" %>
+                    <button type="span" class="btn btn-lg btn-success pull-right" role="button">預約成功</button>
+                <% when "complete" %>
+                    <button type="span" class="btn btn-lg btn-success pull-right" role="button">已結案</button>
+                <%end%>
+
+            <%else%>
+
+                <%if cases.status == "booking" %>
+                    <%= link_to "確認",booking_path(cases,:confirm => true),:method => :patch,:class => "btn-lg btn-primary pull-right"%>
+                    <%= link_to "取消",case_path(cases,:case =>{:status => "cancel"}),:method => :patch,:class => "btn-lg btn-danger pull-right"%>
+                <%end%>
+
+            <%end%>
+        <%end%>
+    </div>
+
+
+
+

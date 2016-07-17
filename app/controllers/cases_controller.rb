@@ -32,6 +32,8 @@ class CasesController < ApplicationController
 
 	def show
 		@cases = Case.find(params[:id])
+		@comment = @case.comments.new
+		@comments = @cases.comments
 	end
 
 	def update
