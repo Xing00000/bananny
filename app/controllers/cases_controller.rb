@@ -8,7 +8,7 @@ class CasesController < ApplicationController
 		@nanny = Nanny.find_by(:id => params[:nanny_id])
 
 		if @nanny.cases.where(:start_date => session["search_nanny"]["start_date"].to_time(:utc)).where(:end_date => session["search_nanny"]["end_date"].to_time(:utc)).where(:status => :build).first == nil
-			byebug
+
 			@case = @nanny.cases.create!(
 				:emergency_number => current_user.profile.mobile_phone,
 		    :emergency_name => current_user.profile.last_name,
