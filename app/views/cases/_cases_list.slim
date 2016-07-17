@@ -1,0 +1,18 @@
+h2 = "歷史紀錄"
+
+.row
+  -cases.each do |c|
+    .col-md-12.col-xs-12
+      .thumbnail.well
+        .media-left
+          img src="#{c.nanny.image.medium.url}" class="img-circle"
+        .media-body
+          .caption
+          h3 = "#{c.status}"
+          p = "#{c.start_date}".to_date
+          |ID:#{c.nanny_id}
+          h4 = "#{c.nanny.last_name} 保母"
+
+          .btn-group.pull-right
+            =link_to("紀錄" , case_path(c), :class=> "btn btn-primary")
+
