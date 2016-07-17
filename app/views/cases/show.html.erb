@@ -1,4 +1,8 @@
 <h1>case</h1>
 
+
+
 <%= render :partial => "shared/case_form",:locals => { cases: @cases} %>
 
+<%= link_to "取消",case_path(@cases,:case =>{:status => "cancel"}),:method => :patch,:class => "btn-lg btn-danger pull-right"%>
+a
