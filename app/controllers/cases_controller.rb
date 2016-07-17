@@ -32,7 +32,7 @@ class CasesController < ApplicationController
 
 	def show
 		@cases = Case.find(params[:id])
-		@comment = @case.comments.new
+		@new_comment = @case.comments.new
 		@comments = @cases.comments
 	end
 

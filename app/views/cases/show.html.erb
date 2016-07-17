@@ -9,14 +9,12 @@
 	<%= render :partial => "shared/case_status",:locals => { cases: @cases} %>
 </div>
 
-<div class="case-comment">
+<div id="comments" class="case-comment">
 
-	<%= render :partial => "shared/comments",:locals => { comments: @comments} %>
-
-
-	<%=simple_form_for @comment,:url => case_comments_path(@cases) do |c|%>
-		<%= c.input :comment %>
-		<%= c.button :submit ,:class => "btn-primary pull-right" %>
+	<%= render :partial => "shared/comments",:locals => { comments: @cases.comments} %>
+</div>
+	<%=form_for @new_comment,:url => case_comments_path(@cases),remote: true do |c|%>
+		<%= c.text_field :comment, required: true,:class => "form-control" %>
+		<%= c.submit :class => "btn btn-primary pull-right" %>
 	<%end%>
 
-</div>
