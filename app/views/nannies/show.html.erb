@@ -3,7 +3,9 @@
 
 
 <h2>Profile</h2>
-<%= link_to "私訊",nanny_cases_path(@nanny),:method => :post,:class => "btn-lg btn-danger pull-right"%>
+<% if current_user.profile.type == "Parent" && @nanny.info %>
+	<%= link_to "私訊",nanny_cases_path(@nanny),:method => :post,:class => "btn-lg btn-danger pull-right"%>
+<%end %>
 <br>
 <%= @nanny.last_name %>
 <%= @nanny.first_name %>

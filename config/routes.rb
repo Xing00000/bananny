@@ -13,8 +13,9 @@ Rails.application.routes.draw do
       get  :data
     end
   end
-  resources :cases
-
+  resources :cases do
+    resources :comments,only: [:create,:update]
+  end
   resources :infos ,only: [:create,:edit,:update]
   resources :parents do
     resources :children ,only: [:new]
@@ -22,7 +23,9 @@ Rails.application.routes.draw do
   resources :children ,only: [:create,:update,:edit]
 
   match ":nanny_id/schedules", :to => "schedules#db_action", :as => "db_action", :via => "get"
+  match "case/:case_id", :to => "schedules#booking", :as => "booking", :via => "patch"
 
   root "users#index"
+  mount ActionCable.server => '/cable'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

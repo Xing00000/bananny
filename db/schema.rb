@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160716093614) do
+ActiveRecord::Schema.define(version: 20160717053233) do
 
   create_table "cases", force: :cascade do |t|
     t.string   "emergency_number"
@@ -21,14 +21,12 @@ ActiveRecord::Schema.define(version: 20160716093614) do
     t.text     "comment"
     t.integer  "nanny_id"
     t.integer  "parent_id"
-    t.integer  "child_id"
-    t.datetime "date"
-    t.integer  "start_time"
-    t.integer  "end_time"
     t.string   "status"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.index ["child_id"], name: "index_cases_on_child_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "charge_per_hour"
     t.index ["nanny_id"], name: "index_cases_on_nanny_id"
     t.index ["parent_id"], name: "index_cases_on_parent_id"
   end

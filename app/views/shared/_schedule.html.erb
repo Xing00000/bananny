@@ -24,4 +24,21 @@
   dp.init(scheduler);
   dp.setTransactionMode("GET", false);
 <%end%>
+
+  scheduler.templates.event_class = function(start,end,ev){
+  if(ev.text != ''){
+    return "bg_alex";
+  }
+  console.log(ev);
+};
+
+  scheduler.attachEvent("onBeforeDrag",function(){return false;})
+  scheduler.attachEvent("onClick",function(){return false;})
+  scheduler.config.dblclick_create = false;
+  scheduler.attachEvent("onDblclick",function(){return false;})
 </script>
+<style>
+.bg_alex .dhx_title, .bg_alex .dhx_body{
+  background-color: red;
+}
+</style>

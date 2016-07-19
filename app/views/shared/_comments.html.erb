@@ -1,0 +1,22 @@
+<%comments.each do |c|%>
+	<%if current_user == c.user %>
+		<div class="media ">
+
+			<div class="media-body blockquote-reverse well">
+			  <h4 class="media-heading"> <%=c.comment%></h4>
+	 		</div>
+	 		<div class="media-right">
+				<%= image_tag c.user.profile.image.thumb.url,:class => "img-circle" %>
+			</div>
+		</div>
+	<%else%>
+		<div class="media ">
+			<div class="media-left">
+				<%= image_tag c.user.profile.image.thumb.url,:class => "img-circle" %>
+			</div>
+			<div class="media-body well">
+			  <h4 class="media-heading"> <%=c.comment%></h4>
+	 		</div>
+		</div>
+	<%end%>
+<%end%>

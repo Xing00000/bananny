@@ -73,7 +73,26 @@ class SchedulesController < ApplicationController
               :sid => id,
               :tid => tid,
           }
- end
+  end
+
+  def booking
+
+    @case = Case.find(params[:case_id].to_i)
+    if params[:confirm] == "true"
+
+      schedules = current_user.profile.schedules.where("start_date>=? and start_date < ?",@case.start_date,@case.end_date).where(:case_id => nil)
+      count = (@case.end_date - @case.start_date)/1800
+
+      if schedules.count == count
+        schedules.update_all(:text => @case.parent.nickname ,:case_id => @case.id)
+        @case.update(:status => "success")
+      end
+      redirect_to cases_path
+    end
+
+
+  end
+
 
   # PATCH/PUT /schedules/1
   # PATCH/PUT /schedules/1.json

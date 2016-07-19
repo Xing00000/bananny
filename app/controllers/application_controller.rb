@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 		(params[:end_date].to_time-params[:start_date].to_time)/1800
 	end
 	def search_nanny(params)
-	 	nanies = Schedule.where("start_date>=? and start_date < ?",params[:start_date].to_time(:utc),params[:end_date].to_time(:utc)).group(:nanny_id).count.select {|k,v| v >= count_input_times(params)}.keys
+	 	nanies = Schedule.where("start_date>=? and start_date < ?",params[:start_date].to_time(:utc),params[:end_date].to_time(:utc)).where(:case_id => nil).group(:nanny_id).count.select {|k,v| v >= count_input_times(params)}.keys
 		Nanny.find(nanies)
 	end
 end
