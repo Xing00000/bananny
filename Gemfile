@@ -47,6 +47,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'hirb-unicode'
   gem 'rack-mini-profiler'
+  gem 'faker'
 end
 
 group :development do
