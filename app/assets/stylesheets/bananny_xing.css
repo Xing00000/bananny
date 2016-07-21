@@ -1,12 +1,14 @@
 .navbar {
-margin-bottom: 0px;
-box-sizing: border-box;
+  margin-bottom: 0px;
+  box-sizing: border-box;
+  z-index: 1;
 }
 
 
 .xing {
   height: 600px;
-  margin-top:0px;
+  margin-top:-50px;
+  z-index: 0;
 }
 #naver > div > div.xing.content.text-center > div.content-container > div > div.xing-index-text > h1{
 	color: white;
@@ -26,7 +28,7 @@ box-sizing: border-box;
   position: absolute;
   right: 0;
   top: 0;
-  z-index: -1
+  z-index: -1;
 }
 
 .air-slideshow{
@@ -37,13 +39,18 @@ box-sizing: border-box;
   height: 100%;
   display: none;
 }
+.embed-responsive {
+  min-height: 600px;
+}
 .video{
 position:relative;
 }
-
+#naver > div > div.xing.bg > div.video > div > iframe{
+  min-height: 600px;
+}
 #naver > div > div.xing.content.text-center{
   position: relative;
-  height: 550px;
+  height: 600px;
 
 }
 .content-container{
@@ -102,6 +109,167 @@ position:relative;
   float: left;
   overflow-y: hidden;
 }
-select:not(:-internal-list-box) {
-    overflow: hidden !important;
+
+
+/*_result*/
+
+.bg{
+  background-image: url(map.jpg);
+  min-height:200px ;
+  margin-top:0px;
+
+  overflow: hidden;
+
+
+}
+
+#search-result .panel-primary.panel-profile{
+  border-color: #F9BF45;
+}
+
+
+#search-result .panel-heading.nanny-color{
+  background-color: #F9BF45;
+  border-color: #F9BF45;
+}
+
+.nanny-color{
+  background-color: #F9BF45;
+  border-color: #F9BF45;
+}
+.nanny-color:hover{
+  background-color: #fb6b0b;
+  border-color: #fb6b0b;
+}
+
+#search-result .panel-heading .media-left{
+  padding-right: 280px;
+}
+#search-result .rate-start{
+  position: relative;
+  min-width: 140px;
+  height: 63px;
+}
+#search-result .case-count{
+  height: 63px;
+  bottom: 0;
+}
+#search-result .panel-heading .media-body .case-count h4{
+  position: absolute;
+  bottom: 5px;
+  font-size: 20px;
+}
+.panel-body{
+  position: relative;
+}
+
+#search-result .panal-body .media-left{
+  padding-right: 300px;
+  padding-bottom: 160px;
+
+}
+#search-result .media-left img{
+  max-width: 200px;
+  margin-top: -50px;
+  margin-bottom: 5px;
+  border: 5px solid #fff;
+  margin-left: 50px;
+  position: absolute;
+  z-index: 1;
+}
+.media-body{
+  position: relative;
+}
+
+#search-result .panal-body .media-body table{
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+
+#search-result .media-body{
+ /* max-width: 600px;*/
+}
+
+th, td{
+    text-align: left;
+    max-width: 50px;
+}
+
+/* Ratings widget */
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+/* Ratings widget */
+.rate {
+    display: inline-block;
+    border: 0;
+}
+/* Hide radio */
+.rate > input {
+    display: none;
+}
+/* Order correctly by floating highest to the right */
+.rate > label {
+    float: right;
+}
+/* The star of the show */
+.rate > label:before {
+    display: inline-block;
+    font-size: 2.5rem;
+    padding: .3rem .2rem;
+    margin: 0;
+    cursor: pointer;
+    font-family: FontAwesome;
+    content: "\f005 "; /* full star */
+}
+/* Zero stars rating */
+.rate > label:last-child:before {
+    content: "\f006 "; /* empty star outline */
+}
+fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    min-width: 0;
+    bottom: 0;
+    position: absolute;
+  }
+/* Half star trick */
+.rate .half:before {
+    content: "\f089 "; /* half star no outline */
+    position: absolute;
+    padding-right: 0;
+}
+/* Click + hover color */
+input:checked ~ label, /* color current and previous stars on checked */
+label:hover, label:hover ~ label { color: #fb6b0b;  } /* color previous stars on hover */
+
+/* Hover highlights */
+input:checked + label:hover, input:checked ~ label:hover, /* highlight current and previous stars */
+input:checked ~ label:hover ~ label, /* highlight previous selected stars for new rating */
+label:hover ~ input:checked ~ label /* highlight previous selected stars */ { color: #fb6b0b; }
+
+
+/*footer*/
+.footer-container{
+  padding:15px;
+  background-color: #F7CEB2;
+  min-height: 100px;
+  color: white;
+}
+.footer-tilte h4{
+  font-size: 22px;
+}
+.footer-container ul{
+  padding: 0;
+}
+.footer-container li{
+  list-style: none;
+  display:inline;
+  color: white;
+  font-size: 30px;
+  padding:30px;
+}
+.footer-bottom{
+
 }

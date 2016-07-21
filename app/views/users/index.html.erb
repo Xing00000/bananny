@@ -9,22 +9,27 @@
     <%= render "shared/flash_message" %>
   </div>
 
-<div id="header-search-nanny">
-	<%= render "shared/header" %>
-</div>
 
-<div class="container">
-	<div id="search-result">
-		<% if @search_nanny %>
-		  <%= render 'result', :search_nanny => @search_nanny %>
-		<%end%>
-	</div>
 
-	<div id="user-booking">
-		<% if current_user && current_user.registered? == nil%>
-		  <%= link_to "保母註冊",new_user_nanny_path(current_user),:class => "btn btn-primary"%>
-		  <%= link_to "爸媽註冊",new_user_parent_path(current_user),:class => "btn btn-primary"%>
-		<% end %>
+<div class="container-full">
+	<div class="bg">
+		<div class="container">
+			<div id="search-result">
+				<% if @search_nanny %>
+					<h3>搜尋時間：<%= session["search_nanny"][:start_date]%>~<%= session["search_nanny"][:end_date]%></h3>
+					<div class="row">
+				  	<%= render :partial => "result" ,:collection => @search_nanny, :as => :nanny %>
+					</div>
+				<%end%>
+			</div>
+
+			<div id="user-booking">
+				<% if current_user && current_user.registered? == nil%>
+				  <%= link_to "保母註冊",new_user_nanny_path(current_user),:class => "btn btn-primary"%>
+				  <%= link_to "爸媽註冊",new_user_parent_path(current_user),:class => "btn btn-primary"%>
+				<% end %>
+			</div>
+		</div>
 	</div>
 </div>
 
