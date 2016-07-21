@@ -17,6 +17,9 @@
 
 <script>
 	scheduler.config.xml_date="%Y-%m-%d %H:%i";
+  scheduler.config.time_step = 30;
+  scheduler.config.max_month_events = 5;
+
   scheduler.init("scheduler_here");
   scheduler.load("<%= data_nanny_path(nanny) %>", "json");
 <%if nil%>
@@ -25,12 +28,18 @@
   dp.setTransactionMode("GET", false);
 <%end%>
 
+
   scheduler.templates.event_class = function(start,end,ev){
   if(ev.text != ''){
     return "bg_alex";
   }
   console.log(ev);
 };
+  scheduler.templates.event_bar_date = function(start,end,ev){
+            return "";
+         };
+
+
 
   scheduler.attachEvent("onBeforeDrag",function(){return false;})
   scheduler.attachEvent("onClick",function(){return false;})
