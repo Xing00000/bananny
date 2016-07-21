@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
 	def count_input_times(params)
 		(end_date(params) - start_date(params))/1800
 	end
+
 	def search_nanny(params)
 	 	nanies = Schedule.where("start_date>=? and start_date < ?",start_date(params) ,end_date(params)).where(:case_id => nil).group(:nanny_id).count.select {|k,v| v >= count_input_times(params)}.keys
 		Nanny.find(nanies)

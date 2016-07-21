@@ -3,4 +3,5 @@ class Nanny < Profile
 	has_many :cases
 	belongs_to :user
 	has_one :info
+
 end

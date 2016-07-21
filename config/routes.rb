@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   scope :path => '/api/v1/', :module => 'api_v1', :as => 'v1', :defaults => { :format => :json } do
-
+    resource :user
   end
 
   resources :users do
