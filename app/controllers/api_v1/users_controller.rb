@@ -1,2 +1,3 @@
-class APIV1::UsersController < ApplicationController
+class APIV1::UsersController < APIController
+
 end
