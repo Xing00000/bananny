@@ -3,9 +3,12 @@
 
 
 <h2>Profile</h2>
-<% if current_user.profile.type == "Parent" && @nanny.info %>
-	<%= link_to "私訊",nanny_cases_path(@nanny),:method => :post,:class => "btn-lg btn-danger pull-right"%>
-<%end %>
+<%if %>
+	<% if current_user.profile.type == "Parent" && @nanny.info %>
+		<%= link_to "私訊",nanny_cases_path(@nanny),:method => :post,:class => "btn-lg btn-danger pull-right"%>
+	<%end %>
+<%end%>
+
 <br>
 <%= @nanny.last_name %>
 <%= @nanny.first_name %>
@@ -30,12 +33,11 @@
 	<div id="bulid-schedule">
 		<%= render "shared/build_schedule", {:build_schedule => @schedule ,:nanny => @nanny } %>
 	</div>
-	<div id="show-schedule">
-		<%= render "shared/schedule", :nanny => @nanny %>
+	<div class="container">
+		<div id="show-schedule">
+			<%= render "shared/schedule", :nanny => @nanny %>
+		</div>
 	</div>
 </div>
 
-
-<%= link_to 'Edit', edit_nanny_path(@nanny) %> |
-<%= link_to 'Back', nannies_path %>
 

@@ -1,0 +1,71 @@
+
+<%if nanny.info %>
+  <div class="col-md-12">
+    <div class="panel panel-primary panel-profile m-b-0">
+
+      <div class="panel-heading nanny-color">
+        <div class="media">
+          <div class="media-left">
+
+          </div>
+
+          <div class="media-body clearfix">
+
+            <div class="last-name pull-left">
+              <h2><%= nanny.last_name %> 保母</h2>
+            </div>
+            <div class="rate-start pull-left">
+              <%= render "shared/rate_star" %>
+            </div>
+
+            <div class="case-count pull-left">
+              <h4>(<%= nanny.info.case_done%>5)</h4>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="panal-body">
+        <div class="media">
+          <div class="media-left">
+            <%= image_tag nanny.image.medium.url ,:class=>"img-circle panel-profile-img"%>
+
+          </div>
+          <div class="media-body">
+            <div class="table-responsive">
+              <table class="table table-condensed">
+                <tr>
+                  <%if params[:start_date].to_date.sunday?||params[:start_date].to_date.saturday?%>
+                    <td>假日每小時收費</td>
+                    <td><%=nanny.info.holiday_charge%>/hr</td>
+                    <td></td>
+                  <%else%>
+                    <td>平日每小時收費</td>
+                    <td><%=nanny.info.weekday_charge%>/hr</td>
+                    <td></td>
+                  <%end%>
+                </tr>
+                <tr>
+                  <td>每趟最低時數</td>
+                  <td><%= nanny.info.min_hour %>小時</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>拖育經驗</td>
+                  <td><%= distance_of_time_in_words_to_now(nanny.info.since)%></td>
+                  <td></td>
+                </tr>
+
+              </table>
+            </div>
+            <div class="nanny-show pull-right">
+              <%= link_to "詳細資料",nanny_path(nanny),:class => "btn btn-primary nanny-color btn-lg"%>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<%end%>
