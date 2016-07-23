@@ -1,22 +1,10 @@
 
-  <div id="super-top">
-
-  </div>
-  <div id="naver">
-    <%= render "shared/navbar" %>
-  </div>
- 	<div id="flash">
-    <%= render "shared/flash_message" %>
-  </div>
-
-
-
 <div class="container-full">
 	<div class="bg">
 		<div class="container">
 			<div id="search-result">
 				<% if @search_nanny %>
-					<h3>搜尋時間：<%= session["search_nanny"][:start_date]%>~<%= session["search_nanny"][:end_date]%></h3>
+
 					<div class="row">
 				  	<%= render :partial => "result" ,:collection => @search_nanny, :as => :nanny %>
 					</div>

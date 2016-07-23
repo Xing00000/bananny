@@ -36,7 +36,7 @@
             <div class="table-responsive">
               <table class="table table-condensed">
                 <tr>
-                  <%if params[:start_date].to_date.sunday?||params[:start_date].to_date.saturday?%>
+                  <%if @start_date.to_date.sunday?|| @start_date.to_date.saturday?%>
                     <td>假日每小時收費</td>
                     <td><%=nanny.info.holiday_charge%>/hr</td>
                     <td></td>
@@ -60,7 +60,7 @@
               </table>
             </div>
             <div class="nanny-show pull-right">
-              <%= link_to "詳細資料",nanny_path(nanny),:class => "btn btn-primary nanny-color btn-lg"%>
+              <%= link_to "詳細資料",nanny_path(nanny),:class => "btn  nanny-color btn-lg"%>
             </div>
           </div>
         </div>

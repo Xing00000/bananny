@@ -81,10 +81,12 @@ position:relative;
 }
 #naver > div > div.xing.content.text-center > div.content-footer > div > div > form{
 	display: inline-block;
-  max-width: 100%;
+  width: 800px;
 }
 
-#datetimepicker ,#datetimepicker2,#build-datetimepicker,#build-datetimepicker2{
+
+#datetimepicker ,#datetimepicker2,#datetimepicker3,#build-datetimepicker,#build-datetimepicker2{
+  width: 200px;
   height: 40px;
   font-size: 20px;
   padding-top: 10px;
@@ -95,6 +97,10 @@ position:relative;
 	display: block;
 	float: left;
 }
+#datetimepicker2,#datetimepicker3{
+  width: 120px;
+}
+
 .btn-search{
 	height: 40px;
 	font-size: 20px;
@@ -136,10 +142,12 @@ position:relative;
 .nanny-color{
   background-color: #F9BF45;
   border-color: #F9BF45;
+  color: white;
 }
 .nanny-color:hover{
   background-color: #fb6b0b;
   border-color: #fb6b0b;
+  color: white;
 }
 
 #search-result .panel-heading .media-left{

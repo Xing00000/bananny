@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bananny</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'dhtmlxscheduler', media: 'all', 'data-turbolinks-track' => true %>
+    <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'dhtmlxscheduler', 'data-turbolinks-track' => true %>
+    <%= action_cable_meta_tag %>
+  </head>
+
+  <body>
+
+  <div id="super-top">
+
+  </div>
+
+
+  <div id="naver">
+    <%= render "shared/navbar" %>
+  </div>
+  <div id="flash">
+    <%= render "shared/flash_message" %>
+  </div>
+
+      <%= yield %>
+
+    <div id="footer" class="footer-container">
+
+      <div class="container">
+        <div class="text-center">
+          <div class="footer-tilte">
+            <h4>關注我們</h4>
+          </div>
+          <ul class="footer-body text-center">
+            <a href="#">
+              <li>
+
+                <span class="glyphicon glyphicon-thumbs-up"></span>
+
+              </li>
+            </a>
+            <a href="#">
+              <li>
+
+                <span class="glyphicon glyphicon-envelope"></span>
+
+              </li>
+            </a>
+          </ul>
+          </div>
+          <div class="footer-bottom text-center">
+            <h4>Bananny, Inc</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

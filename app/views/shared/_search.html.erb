@@ -1,7 +1,8 @@
 
 <%= form_tag root_path ,:method => :get do %>
-	<%= text_field_tag :start_date, "","id" => "datetimepicker" ,:required => :true,:placeholder => "開始時間" ,:autocomplete =>"off" %>
-	<%= text_field_tag :end_date,"" ,"id" => "datetimepicker2",:required => :true ,:placeholder => "結束時間",:autocomplete =>"off" %>
+	<%= text_field_tag :date, "#{}","id" => "datetimepicker" ,:required => :true,:placeholder => "日期" ,:autocomplete =>"off" %>
+	<%= text_field_tag :start_date,"#{}" ,"id" => "datetimepicker2",:required => :true ,:placeholder => "開始時間",:autocomplete =>"off" %>
+	<%= text_field_tag :end_date,"#{}" ,"id" => "datetimepicker3",:required => :true ,:placeholder => "結束時間",:autocomplete =>"off" %>
 	<%= select :district,:district,Profile::DISTRICT,:required => :true ,:placeholder => "請輸入區域",:autocomplete =>"off" %>
 	<%= submit_tag "搜尋保母" ,:class => "btn btn-search" %>
 <%end%>
@@ -21,21 +22,23 @@
 	// });
 
 	jQuery.datetimepicker.setLocale('zh-TW');
-
 	jQuery('#datetimepicker').datetimepicker({
-
+		timepicker:false,
+		format:'Y-m-d',
 		minDate:'0',
 		step:30
 	});
 
 	jQuery('#datetimepicker2').datetimepicker({
+		datepicker:false,
+		format:'H:i',
+		step:30
+	});
 
-		onShow:function( ct ){
-	  this.setOptions({
-	    minDate:jQuery('#datetimepicker').val()?jQuery('#datetimepicker').val():false
-	   })
-	  },
+	jQuery('#datetimepicker3').datetimepicker({
 
+		datepicker:false,
+		format:'H:i',
 	 	step:30
 	});
 
