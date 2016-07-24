@@ -1,18 +1,26 @@
 Rails.application.routes.draw do
 
   devise_for :users
-
+  # :constraints => { subdomain: 'api' }
   scope :path => '/api/v1/', :module => 'api_v1', :as => 'v1', :defaults => { :format => :json } do
-    resource :user
+    # resources :users, only: [:show] # for testing purposes only
+    get 'user' => 'users#show'
+    post 'search' => 'nannies#search_nannies'
+
+    resources :cases, only: [:new, :create, :update, :show, :destroy]
+
+    resources :ratings, only: [:show]
   end
 
   resources :users do
-  	resources :nannies ,only: [:new]
-    resources :parents ,only: [:new]
+    with_options only: :new do |new_only|
+      new_only.resources :nannies, :parents
+    end
   end
+
   resources :nannies do
   	resources :schedules
-    resources :cases ,only: [:create]
+    resources :cases, only: [:create]
     member do
       get  :data
     end
