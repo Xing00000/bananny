@@ -3,7 +3,7 @@ namespace :db do
   task :populate => :environment do
     require 'faker'
 
-    [User, Nanny, Parent, Child, Case].each(&:delete_all)
+    [User, Nanny, Info, Schedule, Parent, Child, Case, Rating, Item].each(&:delete_all)
 
 
     def create_user()
@@ -35,12 +35,33 @@ namespace :db do
                     :district => random_district() )
     end
 
-    def create_cases(num_of_times, parent_id, child_id, nanny_id)
+    def create_cases(num_of_times, parent_id, nanny_id)
       index = 0
+      schedule_id = Schedule.first.id
+      # the five qualities the the ratings are based on
+      item_qualities = ['Friendliness', 'Conscientiousness', 'Hotness', 'Dependability', 'Trustworthiness']
       while index < num_of_times
-        Case.create( :parent_id => parent_id[index],
-                     :child_id => child_id[index],
-                     :nanny_id => nanny_id[index] )
+        a_case = Case.create( :parent_id => parent_id[index],
+                              :nanny_id => nanny_id[index] )
+        schedule_case_id = Schedule.find(schedule_id).update( :case_id => a_case.id,
+                                                              :text => Faker::Beer.name )
+        if index % 2 == 0
+          rating = Rating.create( :case_id => a_case.id,
+                                  :rater_id => parent_id[index],
+                                  :rated_id => nanny_id[index],
+                                  :feedback => Faker::Hipster.sentence )
+        else
+          rating = Rating.create( :case_id => a_case.id,
+                                  :rater_id => parent_id[index],
+                                  :rated_id => nanny_id[index],
+                                  :feedback => Faker::Hipster.sentence )
+        end
+        item_qualities.each do |quality|
+          item = Item.create( :rating_id => rating.id,
+                              :name => quality,
+                              :scored => rand(1..5))
+        end
+        schedule_id += 1
         index += 1
       end
     end
@@ -84,15 +105,25 @@ namespace :db do
 
       nanny_users.push(nanny.id)
 
-      info = Info.create(:nanny_id => nanny.id)
-      schedule = Schedule.create(:nanny_id => nanny.id)
+      charge = Faker::Commerce.price.to_i
+      info = Info.create(:nanny_id => nanny.id,
+                         :weekday_charge => (charge * 5),
+                         :holiday_charge => (charge * 7),
+                         :special_charge => (charge * 8),
+                         :introduction => Faker::Lorem.sentence,
+                         :case_done => nanny.cases.count )
+      2.times do
+        schedule = Schedule.create(:nanny_id => nanny.id)
+      end
     end
 
     p parent_users
     p child_users
     p nanny_users
 
-    create_cases(7, parent_users, child_users, nanny_users)
+    create_cases(7, parent_users, nanny_users)
+
+
 
 
   end
