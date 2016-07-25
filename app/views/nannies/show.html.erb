@@ -27,13 +27,13 @@
 				<div class="row">
 					<div class="col-sm-4 col-xs-4">
 						<div class="info-box">
-							<h3>197</h3>
+							<h3><%=@nanny.ratings.count%>30</h3>
           			<p class="text-muted">這麼多爸媽都評價了<%= @nanny.last_name %>保母。</p>
        			</div>
 					</div>
 					<div class="col-sm-4 col-xs-4">
 						<div class="info-box">
-							<h3>130</h3>
+							<h3><%=@nanny.info.case_done%>197</h3>
           			<p class="text-muted">完成托育案件次數</p>
        			</div>
 					</div>
@@ -49,16 +49,110 @@
 			<div class="panel-footer">
 				<table class="table .table-hover">
 					<tr>
-						<td class="icon"></td>
+						<td class="icon">
+							<img class="icon" src="http://placehold.it/30x30">
+						</td>
 						<td>
 							<div class="info-box">
 							<h5>關於我</h5>
-          			<p class="text-muted">托育經驗</p>
+          			<p class="text-muted"><%=@nanny.info.introduction%></p>
        				</div>
 						</td>
-						<td></td>
-					</tr>
+						<td>
 
+						</td>
+					</tr>
+					<tr>
+						<td class="icon">
+							<img class="icon" src="http://placehold.it/30x30">
+						</td>
+						<td>
+							<div class="info-box">
+							<h5>特殊托育經驗</h5>
+          			<p class="text-muted"><%=@nanny.info.special%></p>
+       				</div>
+						</td>
+						<td>
+
+						</td>
+					</tr>
+					<tr>
+						<td class="icon">
+							<img class="icon" src="http://placehold.it/30x30">
+						</td>
+						<td>
+							<h5>拖育人員登記號碼</h5>
+						</td>
+						<td>
+							<p class="text-muted"><%=%></p>
+						</td>
+					</tr>
+					<tr>
+						<td class="icon">
+							<img class="icon" src="http://placehold.it/30x30">
+						</td>
+						<td>
+							<h5>平日每小時收費(08:00~20:00)</h5>
+						</td>
+						<td>
+							<p class="text-muted">$ <%=@nanny.info.weekday_charge%> /hr</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="icon">
+							<img class="icon" src="http://placehold.it/30x30">
+						</td>
+						<td>
+							<h5>六日及國定假日每小時收費(08:00~20:00)</h5>
+						</td>
+						<td>
+							<p class="text-muted">$ <%=@nanny.info.holiday_charge%> /hr</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="icon">
+							<img class="icon" src="http://placehold.it/30x30">
+						</td>
+						<td>
+							<h5>每趟最低時限</h5>
+						</td>
+						<td>
+							<p class="text-muted"> <%=@nanny.info.min_hour%> hr</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="icon">
+							<img class="icon" src="http://placehold.it/30x30">
+						</td>
+						<td>
+							<h5>特殊時段備註</h5>
+						</td>
+						<td>
+							<p class="text-muted"> <%=@nanny.info.def_special%></p>
+						</td>
+					</tr>
+					<tr>
+						<td class="icon">
+							<img class="icon" src="http://placehold.it/30x30">
+						</td>
+						<td>
+							<h5>特殊時段每小時加收費</h5>
+						</td>
+						<td>
+							<p class="text-muted">$ <%=@nanny.info.special_charge %> /hr</p>
+						</td>
+					</tr>
+										<tr>
+						<td class="icon">
+							<img class="icon" src="http://placehold.it/30x30">
+						</td>
+						<td>
+							<h5>爸媽評價</h5>
+						</td>
+						<td>
+							<p class="text-muted"></p>
+						</td>
+					</tr>
 				</table>
 			</div>
 		</div>
