@@ -1,0 +1,127 @@
+
+
+	<nav class="navbar clearfix">
+	  <div id="logo" class="btn pull-left">
+			<%= link_to('Bananny 托育小幫手', root_path) %>
+
+	 	</div>
+		<%if current_user%>
+
+			<div class="btn pull-right">
+		  	<%= link_to('登出', destroy_user_session_path, :method => :delete) %>
+		  </div>
+		  <div class="btn pull-right">
+		  	<%= link_to('修改密碼', edit_registration_path(:user)) %>
+		  </div>
+			<div class="btn pull-right ">
+				<%= link_to "設定",current_user.profile %>
+			</div>
+			<div class="btn pull-right">
+				<%= link_to "訊息",cases_path %>
+			</div>
+		<% else %>
+
+	  	<div class="btn pull-right">
+				<%= link_to('登入', new_session_path(:user)) %>
+	  	</div>
+	  	<div class="btn pull-right">
+				<%= link_to('註冊', new_registration_path(:user)) %>
+	  	</div>
+
+	  <% end %>
+
+	</nav>
+
+<%if current_user%>
+
+	<div class="panel nav-panel">
+		<div class="panel-heading">
+
+		</div>
+
+		<div class="panel-footer">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-6 col-sm-12">
+						<div class="row">
+							<div class="media">
+
+									<div class="media-left col-md-4 col-sm-12 col-xs-12 pull-left">
+										<%= image_tag current_user.profile.image.medium_150.url ,:class => "img-circle" %>
+									</div>
+
+									<div class="media-right col-md-8 col-sm-12 col-xs-12 clearfix">
+
+										<div class="last-name pull-left">
+											<h2><%= current_user.profile.last_name %> 媽咪</h2>
+										</div>
+										<div class="rate-start pull-left">
+											<%= render "shared/rate_star" %>
+
+		                </div>
+		                <div class="rating-times pull-left">
+		                  <h4>(5)</h4>
+		                <div>
+
+									</div>
+
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+					<div class="col-md-6 col-sm-12">
+								<div class="row">
+
+									<div class="col-sm-3 col-xs-3 text-center">
+						        <div class="service-box">
+						          <img class="icon" src="http://placehold.it/30x30">
+						          <h5>搜尋</h5>
+
+						        </div>
+						      </div>
+
+						      <div class="col-sm-3 col-xs-3 text-center">
+						       <a href="<%=cases_path%>">
+							        <div class="service-box">
+							          <img class="icon" src="http://placehold.it/30x30">
+							          <h5>訊息</h5>
+							        </div>
+										</a>
+						      </div>
+
+						      <div class="col-sm-3 col-xs-3 text-center">
+						        <a href="<%=cases_path%>">
+							        <div class="service-box">
+							          <img class="icon" src="http://placehold.it/30x30">
+							          <h5>通知</h5>
+
+							        </div>
+						        </a>
+						      </div>
+
+						      <div class="col-sm-3 col-xs-3 text-center">
+										<%= link_to(current_user.profile) do %>
+
+								      <div class="service-box">
+								        <img class="icon" src="http://placehold.it/30x30">
+								        <h5>設定</h5>
+
+								      </div>
+
+							      <%end%>
+						      </div>
+								</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+<% end %>

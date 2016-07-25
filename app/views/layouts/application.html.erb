@@ -11,10 +11,16 @@
     <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'dhtmlxscheduler', 'data-turbolinks-track' => true %>
     <%= action_cable_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
-      <%= yield %>
+
+  <div id="shared-naver">
+    <%= render "shared/navbar" %>
+  </div>
+
+    <%= yield %>
 
   <div id="footer">
     <%= render "shared/footer" %>

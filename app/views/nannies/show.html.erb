@@ -1,7 +1,80 @@
-<p id="notice"><%= notice %></p>
+
+<div class="img-rounded" id="profile-show">
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="row">
+					<div class="nanny-img col-dm-2 col-sm-2 col-xs-6">
+						<%= image_tag @nanny.image.thumb.url ,:class => "img-circle" %>
+					</div>
+					<div class="col-dm-5 col-sm-5 col-xs-6">
+						<div class="last-name">
+							<h2><%= @nanny.last_name %> 保母</h2>
+						</div>
+						<div class="rate-start">
+							<%= render "shared/rate_star" %>
+						</div>
+					</div>
+					<div class="col-dm-5 col-sm-5 col-xs-6">
+						<% if current_user.profile.type == "Parent" && @nanny.info %>
+							<%= link_to "預約",nanny_cases_path(@nanny),:method => :post,:class => "btn btn-nanny pull-right"%>
+							<%= link_to "聊聊",nanny_cases_path(@nanny),:method => :post,:class => "btn btn-baby-nanny pull-right"%>
+						<%end %>
+
+					</div>
+			</div>
+			<div class="panel-body text-center">
+				<div class="row">
+					<div class="col-sm-4 col-xs-4">
+						<div class="info-box">
+							<h3>197</h3>
+          			<p class="text-muted">這麼多爸媽都評價了<%= @nanny.last_name %>保母。</p>
+       			</div>
+					</div>
+					<div class="col-sm-4 col-xs-4">
+						<div class="info-box">
+							<h3>130</h3>
+          			<p class="text-muted">完成托育案件次數</p>
+       			</div>
+					</div>
+					<div class="col-sm-4 col-xs-4">
+						<div class="info-box">
+							<h3><%= distance_of_time_in_words_to_now(@nanny.info.since)%></h3>
+          			<p class="text-muted">托育經驗</p>
+       			</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="panel-footer">
+				<table class="table .table-hover">
+					<tr>
+						<td class="icon"></td>
+						<td>
+							<div class="info-box">
+							<h5>關於我</h5>
+          			<p class="text-muted">托育經驗</p>
+       				</div>
+						</td>
+						<td></td>
+					</tr>
+
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
 
 
 
+
+
+
+
+
+
+
+<%if nil%>
 <h2>Profile</h2>
 <%if %>
 	<% if current_user.profile.type == "Parent" && @nanny.info %>
@@ -14,7 +87,7 @@
 <%= @nanny.first_name %>
 
 <%if @nanny["image"]%>
-	<%= image_tag @nanny.image.url ,:class => "img-thumbnail" %>
+	<%= image_tag @nanny.image.thumb.url ,:class => "img-circle" %>
 <%end%>
 
 	<%= link_to "EDIT",edit_nanny_path(@nanny),:class => "btn btn-primary"%>
@@ -40,4 +113,4 @@
 	</div>
 </div>
 
-
+<%end%>
