@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   # :constraints => { subdomain: 'api' }
   scope :path => '/api/v1/', :module => 'api_v1', :as => 'v1', :defaults => { :format => :json } do
     # resources :users, only: [:show] # for testing purposes only
-    get 'user' => 'users#show'
-    post 'search' => 'nannies#search_nannies'
+    post 'user' => 'users#show'
+    post 'search' => 'nannies#search'
 
     resources :cases, only: [:new, :create, :update, :show, :destroy]
 
