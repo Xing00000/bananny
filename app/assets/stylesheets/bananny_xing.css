@@ -2,18 +2,30 @@
   margin-bottom: 0px;
   box-sizing: border-box;
   z-index: 1;
+  background-color:#FFF6DB;
+  opacity: 0.6512;
 }
 
+.navbar a{
+  text-decoration: none;
+  color:#A7A088;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 27px;
+}
 
+#logo a{
+  font-size: 27px;
+}
 .xing {
   height: 600px;
   margin-top:-50px;
   z-index: 0;
 }
 #naver > div > div.xing.content.text-center > div.content-container > div > div.xing-index-text > h1{
-	color: white;
+	color: #49494A;
 	font-size: 4em;
-	font-weight: bold;
+	/*font-weight: bold;*/
 }
 #naver > div > div.xing.content.text-center > div.content-container > div > div.xing-index-text > h3{
 	color: white;
@@ -36,9 +48,21 @@
   padding-left: 0;
   list-style: none;
   background-image: url(baby_sleep.jpg);
+  /*background-size: 1080px 720px;*/
+  background-repeat: no-repeat;
   height: 100%;
   display: none;
 }
+#bg-promote .container-full{
+  height: 470px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position:center 50% 50%;
+  background-image: url(http://fluper.ru/ffh/22/aziatskie_modeli_1920x1200.jpg);
+  /*background-image: url(baby_sleep.jpg);*/
+
+}
+
 .embed-responsive {
   min-height: 600px;
 }
@@ -67,8 +91,9 @@ position:relative;
 
 
 .content-footer{
-  background-color: #000;
-  background-color: rgba(0,0,0,0.6);
+  /*background-color: #000;
+  background-color: rgba(0,0,0,0.6);*/
+  background-color: #F7CEB2;
   bottom: 0px;
   left: 0;
   position: absolute;
@@ -76,68 +101,97 @@ position:relative;
 }
 
 .search{
+  position: relative;
 	padding-top: 30px;
 	padding-bottom: 30px;
 }
+
 #naver > div > div.xing.content.text-center > div.content-footer > div > div > form{
 	display: inline-block;
-  width: 800px;
+
+}
+#naver .form-group{
+  margin-bottom: 0;
+  max-width: 860px;
+  margin:0 auto;
 }
 
+#naver .date{
 
-#datetimepicker ,#datetimepicker2,#datetimepicker3,#build-datetimepicker,#build-datetimepicker2{
+}
+
+#naver .greater-than{
+  width: 20px;
+}
+
+#datetimepicker ,#datetimepicker2, #datetimepicker3,#build-datetimepicker,#build-datetimepicker2{
+
   width: 200px;
   height: 40px;
-  font-size: 20px;
+  font-size: 18px;
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left:0px;
+  padding-left: 10px;
   padding-right:0px;
   border-width: 1px;
 	display: block;
 	float: left;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 #datetimepicker2,#datetimepicker3{
   width: 120px;
 }
 
+
 .btn-search{
+  width: 120px;
 	height: 40px;
-	font-size: 20px;
+	font-size: 18px;
 	padding-top:0px;
 	padding-bottom: 0px;
   display: block;
+  margin-right: 15px;
+  margin-left: 15px;
+  background-color: #636CA3;
+  color: white;
 }
+
 #district_district{
+  padding-left: 10px;
+  width: 120px;
   height: 40px;
-  font-size: 20px;
+  font-size: 18px;
   display: block;
   float: left;
   overflow-y: hidden;
+  margin-right: 30px;
+  margin-left: 15px;
 }
 
 
 /*_result*/
 
 .bg{
-  background-image: url(map.jpg);
-  min-height:200px ;
+  /*background-image: url(map.jpg);*/
+  min-height:0px ;
   margin-top:0px;
 
   overflow: hidden;
 
 
 }
-
-#search-result .panel-primary.panel-profile{
-  border-color: #F9BF45;
+#search-result{
+  padding-top:50px;
+  margin-bottom: 50px;
 }
 
+#search-result .media{
+  box-shadow: 1px 3px 3px 1px #cccccc;
+  margin-top: 20px;
 
-#search-result .panel-heading.nanny-color{
-  background-color: #F9BF45;
-  border-color: #F9BF45;
 }
+
 
 .nanny-color{
   background-color: #F9BF45;
@@ -150,9 +204,6 @@ position:relative;
   color: white;
 }
 
-#search-result .panel-heading .media-left{
-  padding-right: 280px;
-}
 #search-result .rate-start{
   position: relative;
   min-width: 140px;
@@ -162,46 +213,67 @@ position:relative;
   height: 63px;
   bottom: 0;
 }
-#search-result .panel-heading .media-body .case-count h4{
-  position: absolute;
-  bottom: 5px;
-  font-size: 20px;
-}
-.panel-body{
-  position: relative;
+
+
+#search-result .media-left{
+  padding:30px;
 }
 
-#search-result .panal-body .media-left{
-  padding-right: 300px;
-  padding-bottom: 160px;
-
-}
 #search-result .media-left img{
   max-width: 200px;
-  margin-top: -50px;
-  margin-bottom: 5px;
-  border: 5px solid #fff;
-  margin-left: 50px;
-  position: absolute;
   z-index: 1;
+  margin: 0px auto;
 }
 .media-body{
+  padding:0px 30px;
   position: relative;
 }
-
-#search-result .panal-body .media-body table{
-  font-size: 20px;
-  vertical-align: middle;
+#search-result .media-body h2{
+  font-size: 28px;
+  font-weight: bold;
 }
 
+#search-result .media-body table{
+  font-size: 20px;
+
+  border: 0px;
+}
+#search-result .nanny-info{
+  line-height: 300px;
+}
+
+#search-result .btn.btn-nanny {
+  min-width: 200px;
+  background-color: #636CA3;
+  border-color: #636CA3;
+  color: white;
+}
+
+#search-result .btn.btn-nanny:hover{
+  background-color: #3E60AA;
+  border-color: #3E60AA;
+}
 
 #search-result .media-body{
  /* max-width: 600px;*/
 }
 
-th, td{
-    text-align: left;
-    max-width: 50px;
+#search-result .rating-times{
+  padding-top: 20px;
+}
+
+#search-result .media-body table, th, tr,td{
+  text-align: left;
+  border-style:hidden;
+  max-width: 70%;
+}
+
+#search-result .media-body td{
+  height: 50px;
+}
+
+#search-result .media-body .table-responsive{
+
 }
 
 /* Ratings widget */
@@ -257,11 +329,143 @@ input:checked + label:hover, input:checked ~ label:hover, /* highlight current a
 input:checked ~ label:hover ~ label, /* highlight previous selected stars for new rating */
 label:hover ~ input:checked ~ label /* highlight previous selected stars */ { color: #fb6b0b; }
 
+/*index-default*/
+.bg-4tep{
+  padding-top: 50px;
+}
+.bg-4tep h2{
+  font-size: 28px;
+}
+.bg-4tep h3,h4{
+  font-size: 18px;
+}
+
+.bg-4tep p{
+  font-size: 16px;
+}
+
+.bg-4tep .col-md-6{
+  min-height: 260px;
+}
+
+#rating .img-and-rating{
+  padding-top: 50px;
+
+}
+#rating > div > row > div:nth-child(2){
+  height: 400px;
+  padding-top: 100px;
+}
+
+#rating > div > row > div:nth-child(2) > div > h2{
+  color: #636CA3;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#rating .text-muted{
+  width: 280px;
+  margin: 0px auto;
+  color:  #636CA3;
+}
+
+#bg-promote{
+  padding-top: 50px;
+
+}
+
+
+#bg-promote{
+  color: #615B5A;
+  font-weight: bold;
+}
+
+#bg-promote h2{
+  font-size: 30px;
+}
+
+#bg-promote h4{
+  font-size: 18px;
+}
+
+#bg-promote > div > div > div{
+  padding-top: 100px;
+  max-width: 470px;
+}
+
+#our-service{
+  padding-top: 50px;
+  color: #636CA3;
+  font-weight: bold;
+}
+
+#our-service h2{
+  font-size:28px;
+  font-weight: bold;
+
+}
+#our-service h4{
+  font-size:18px;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+#our-service > div:nth-child(1) > div > div{
+  padding-bottom: 40px;
+
+}
+#our-service .service-box{
+  width: 250px;
+  height: 250px;
+  box-shadow:1px 3px 3px 1px #cccccc;
+  margin: 0px auto;
+  padding: 40px 30px 0px 30px;
+}
+
+#img-and-profile{
+  padding-top: 100px;
+
+}
+#img-and-profile > div > row > div:nth-child(1){
+  height: 400px;
+  padding-top: 100px;
+}
+
+#img-and-profile > div > row > div:nth-child(1) > div > h2{
+  color: #636CA3;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#img-and-profile .text-muted{
+  width: 280px;
+  margin: 0px auto;
+  color:  #636CA3;
+}
+
+#feedback{
+  padding-bottom: 50px;
+}
+#feedback > div:nth-child(1) > div > div{
+  padding-bottom: 50px;
+}
+
+#feedback .service-box{
+  width: 200px;
+  margin: 0px auto;
+}
+
+#feedback .text-body{
+  padding-top: 30px;
+}
+
+
+
 
 /*footer*/
 .footer-container{
   padding:15px;
-  background-color: #F7CEB2;
+  background-color: #636CA3;
   min-height: 100px;
   color: white;
 }

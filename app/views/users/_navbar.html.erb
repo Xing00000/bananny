@@ -1,8 +1,8 @@
 
 
 	<nav class="navbar clearfix">
-	  <div id="logo" class="btn btn-primary pull-left">
-			<%= link_to('BANANNY', root_path) %>
+	  <div id="logo" class="btn pull-left">
+			<%= link_to('Bananny 托育小幫手', root_path) %>
 	 	</div>
 		<%if current_user%>
 
@@ -12,10 +12,10 @@
 		  <div class="btn pull-right">
 		  	<%= link_to('修改密碼', edit_registration_path(:user)) %>
 		  </div>
-			<div class="btn pull-right btn-primary">
+			<div class="btn pull-right ">
 				<%= link_to "設定",current_user.profile %>
 			</div>
-			<div class="btn pull-right btn btn-primary">
+			<div class="btn pull-right">
 				<%= link_to "訊息",cases_path %>
 			</div>
 		<% else %>
@@ -29,8 +29,17 @@
 
 	  <% end %>
 
-		<div class="btn btn-primary pull-right">
-			成為保母
+		<div class="btn pull-right">
+			Facebook
+	  </div>
+		<div class="btn pull-right">
+			訂閱
+	  </div>
+		<div class="btn pull-right">
+			如何找保母
+	  </div>
+		<div class="btn pull-right">
+			平台特色
 	  </div>
 	</nav>
 
@@ -53,21 +62,22 @@
 
 			<div class="content-container">
 				<div class="middle">
-					<div class="xing-index-text">
-						<h1>BANANNY</h1>
-						<h3>3分鐘安心找到保母<small>到府鐘點保母，專業評價搜尋</small></h3>
-					</div>
-					<div class="sm-search">
-						<div class="btn btn-default">
-							<%= link_to 'hot to do', root_path %>
+					<div class="logo">
+						<div class="">
+
 					  </div>
 					</div>
+					<div class="xing-index-text">
+						<h1>三分鐘安心找保母</h1>
+						<h3><small></small></h3>
+					</div>
+
 				</div>
 			</div>
 
 			<div class="content-footer">
 				<div class="col-sm-12">
-					<div class="search text-center clearfix">
+					<div class="search text-center container clearfix">
 						<%= render 'shared/search'%>
 					</div>
 				</div>
