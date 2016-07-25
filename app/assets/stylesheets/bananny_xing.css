@@ -591,3 +591,27 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ { co
   color: #000000;
   margin: 0px auto;
 }
+
+/*nanny_show*/
+#profile-show .panel-footer{
+  background: white;
+}
+
+#profile-show td.icon{
+  width:60px;
+  vertical-align: middle;
+}
+#profile-show td:nth-child(2){
+  width: 400px;
+  color: #7A7A7A;
+  font-size:16px ;
+
+}
+#profile-show td:nth-child(3) p{
+  color: #000000;
+  font-size:16px
+
+}
+#profile-show .panel-footer{
+  background: white;
+}
