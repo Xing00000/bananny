@@ -1,0 +1,90 @@
+
+
+	<nav class="navbar clearfix">
+	  <div id="logo" class="btn pull-left">
+			<%= link_to('Bananny 托育小幫手', root_path) %>
+	 	</div>
+		<%if current_user%>
+
+			<div class="btn pull-right">
+		  	<%= link_to('登出', destroy_user_session_path, :method => :delete) %>
+		  </div>
+		  <div class="btn pull-right">
+		  	<%= link_to('修改密碼', edit_registration_path(:user)) %>
+		  </div>
+			<div class="btn pull-right ">
+				<%= link_to "設定",current_user.profile %>
+			</div>
+			<div class="btn pull-right">
+				<%= link_to "訊息",cases_path %>
+			</div>
+		<% else %>
+
+	  	<div class="btn pull-right">
+				<%= link_to('登入', new_session_path(:user)) %>
+	  	</div>
+	  	<div class="btn pull-right">
+				<%= link_to('註冊', new_registration_path(:user)) %>
+	  	</div>
+
+	  <% end %>
+
+		<div class="btn pull-right">
+			Facebook
+	  </div>
+		<div class="btn pull-right">
+			訂閱
+	  </div>
+		<div class="btn pull-right">
+			如何找保母
+	  </div>
+		<div class="btn pull-right">
+			平台特色
+	  </div>
+	</nav>
+
+	<div class="xing index-top">
+
+		<div class="xing bg">
+			<div class="air-slideshow">
+
+			</div>
+
+			<div class="video">
+				<div class="embed-responsive embed-responsive-16by9">
+				  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ncWoML2kpVs?rel=1&autoplay=1" ></iframe>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="xing content text-center">
+
+			<div class="content-container">
+				<div class="middle">
+					<div class="logo">
+						<div class="">
+
+					  </div>
+					</div>
+					<div class="xing-index-text">
+						<h1>三分鐘安心找保母</h1>
+						<h3><small></small></h3>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="content-footer">
+				<div class="col-sm-12">
+					<div class="search text-center container clearfix">
+						<%= render 'shared/search'%>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+

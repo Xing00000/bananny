@@ -1,5 +1,4 @@
 h2 = "搜尋結果"
-
 .row
   -search_nanny.each do |nanny|
     .col-md-12.col-xs-12
@@ -13,9 +12,6 @@ h2 = "搜尋結果"
           h4 = "#{nanny.first_name} #{nanny.last_name}"
           p = "#{nanny.info}"
           .btn-group.pull-right
-            - if current_user
-              =link_to '了解我', nanny ,:class => "btn btn-primary"
-            - else
-              =link_to('註冊', new_registration_path(:user),:class => "btn btn-primary")
-              =link_to('登入', new_session_path(:user),:class => "btn btn-primary")
+            =link_to '了解我', nanny ,:class => "btn btn-primary"
+
 

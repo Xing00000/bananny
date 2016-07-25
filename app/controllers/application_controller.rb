@@ -7,22 +7,30 @@ class ApplicationController < ActionController::Base
   #   input = hour*2 + helfhour
   # end
 
- 	# def start_date(params)
-	# 	params[:start_date] + params["start_date(4i)"] + params["start_date(5i)"]
-	# end
+ 	def start_date(params)
+		if params[:date]
+			(params[:date] +" "+ params[:start_date]).to_time(:utc)
+		else
+			params[:start_date]
+		end
+	end
 
-	# def end_date(params)
-	# 	params["end_time(4i)"].to_i*2 + params["end_time(5i)"].to_i/30
-	# end
+	def end_date(params)
+		if params[:date]
+			(params[:date] +" "+ params[:end_date]).to_time(:utc)
+		else
+			params[:end_date]
+		end
+	end
 
 	# def helfhour_times(params)
 	# 	end_time_number(params[:end_time])-start_time_number(params[:start_time])
 	# end
 	def count_input_times(params)
-		(params[:end_date].to_time-params[:start_date].to_time)/1800
+		(end_date(params) - start_date(params))/1800
 	end
 	def search_nanny(params)
-	 	nanies = Schedule.where("start_date>=? and start_date < ?",params[:start_date].to_time(:utc),params[:end_date].to_time(:utc)).where(:case_id => nil).group(:nanny_id).count.select {|k,v| v >= count_input_times(params)}.keys
+	 	nanies = Schedule.where("start_date>=? and start_date < ?",start_date(params) ,end_date(params)).where(:case_id => nil).group(:nanny_id).count.select {|k,v| v >= count_input_times(params)}.keys
 		Nanny.find(nanies)
 	end
 end

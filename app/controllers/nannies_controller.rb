@@ -1,5 +1,7 @@
 class NanniesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_nanny, only: [:show, :edit, :update, :destroy,:data]
+
 
   # GET /nannies
   # GET /nannies.json

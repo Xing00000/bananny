@@ -1,27 +1,32 @@
 
-<h1>搜尋保母</h1>
+<div class="container-full">
+	<div class="bg">
+
+		<% if @search_nanny %>
+			<div class="container">
+				<div id="search-result">
+					<div class="row">
+				  	<%= render :partial => "result" ,:collection => @search_nanny, :as => :nanny %>
+					</div>
+				</div>
+			</div>
+		<%else%>
+
+			<div id="index-default">
+				<%= render "users/index_default" %>
+			</div>
+
+		<%end%>
 
 
+			<div id="user-booking">
+				<% if current_user && current_user.registered? == nil%>
+				  <%= link_to "保母註冊",new_user_nanny_path(current_user),:class => "btn btn-primary"%>
+				  <%= link_to "爸媽註冊",new_user_parent_path(current_user),:class => "btn btn-primary"%>
+				<% end %>
+			</div>
 
-<br>
-<div id="search_nanny">
-	<%= render 'search'%>
+	</div>
 </div>
 
-<% if @search_nanny %>
-<%#@search_nanny = []%>
 
-  <%= render 'result', :search_nanny => @search_nanny %>
-
-<%end%>
-
-<% if current_user && current_user.registered? == nil%>
-  <%= link_to "保母註冊",new_user_nanny_path(current_user),:class => "btn btn-primary"%>
-  <%= link_to "爸媽註冊",new_user_parent_path(current_user),:class => "btn btn-primary"%>
-
-<% end %>
-
-<% if current_user %>
-  <%= link_to "個人資料",current_user.profile,:class => "btn btn-primary"%>
-  <%= link_to "預約紀錄",cases_path,:class => "btn btn-primary"%>
-<%end%>
