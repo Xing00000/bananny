@@ -1,0 +1,59 @@
+
+<%if nanny.info %>
+  <div class="col-md-12">
+      <div class="media">
+        <div class="media-left col-md-3 col-sm-12">
+            <%= image_tag nanny.image.medium.url ,:class=>"img-circle"%>
+        </div>
+
+        <div class="media-body">
+            <table class="table col-md-6 col-sm-12">
+                <tr>
+                  <th><h2><%= nanny.last_name %> 保母</h2></th>
+                  <th>
+                    <div class="rate-start pull-left">
+                      <%= render "shared/rate_star" %>
+                    </div>
+                    <div class="rating-times pull-left">
+                      <h4>(<%= nanny.info.case_done%>5)</h4>
+                    <div>
+                  </th>
+
+                </tr>
+                <tr>
+                  <%if @start_date.to_date.sunday?|| @start_date.to_date.saturday?%>
+                    <td>假日每小時收費</td>
+                    <td>$ <%=nanny.info.holiday_charge%>/hr</td>
+
+                  <%else%>
+                    <td>平日每小時收費</td>
+                    <td>$ <%=nanny.info.weekday_charge%>/hr</td>
+
+                  <%end%>
+                </tr>
+                <tr>
+                  <td>每趟最低時數</td>
+                  <td><%= nanny.info.min_hour %> 小時</td>
+
+                </tr>
+                <tr>
+                  <td>拖育經驗</td>
+                  <td><%= distance_of_time_in_words_to_now(nanny.info.since)%></td>
+
+                </tr>
+                <tr>
+                  <td>爸媽評價</td>
+                  <td><%=%> 個評價</td>
+
+                </tr>
+
+              </table>
+          <div class="nanny-info col-md-3 col-sm-12">
+            <%= link_to "查看",nanny_path(nanny) ,:class=>"btn btn-nanny"%>
+          </div>
+        </div>
+
+      </div>
+
+  </div>
+<%end%>

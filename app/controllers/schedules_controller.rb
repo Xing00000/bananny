@@ -31,12 +31,14 @@ class SchedulesController < ApplicationController
     time1 = 0
     time2 = 1800
 
-    input.to_i.times do |s|
-      if @nanny.schedules.where(:start_date => (start_date+time1),:end_date => (start_date+time2)).first == nil
-        @nanny.schedules.create(:start_date => (start_date+time1),:end_date => (start_date+time2))
+    ActiveRecord::Base.transaction do
+      input.to_i.times do |s|
+        if @nanny.schedules.where(:start_date => (start_date+time1),:end_date => (start_date+time2)).first.nil?
+          @nanny.schedules.create(:start_date => (start_date+time1),:end_date => (start_date+time2))
+        end
+        time1 += 1800
+        time2 += 1800
       end
-      time1 += 1800
-      time2 += 1800
     end
     redirect_to @nanny, notice: 'Schedule was successfully created.'
   end

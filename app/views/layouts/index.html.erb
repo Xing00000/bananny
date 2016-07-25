@@ -16,11 +16,19 @@
 
   <body>
 
-  <div id="shared-naver">
-    <%= render "shared/navbar" %>
+  <div id="super-top">
+
   </div>
 
-    <%= yield %>
+
+  <div id="naver">
+    <%= render "users/navbar" %>
+  </div>
+  <div id="flash" class="text-center">
+    <%= render "shared/flash_message" %>
+  </div>
+
+      <%= yield %>
 
   <div id="footer">
     <%= render "shared/footer" %>

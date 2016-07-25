@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   end
   resources :children ,only: [:create,:update,:edit]
 
-  match ":nanny_id/schedules", :to => "schedules#db_action", :as => "db_action", :via => "get"
-  match "case/:case_id", :to => "schedules#booking", :as => "booking", :via => "patch"
+  get ":nanny_id/schedules", :to => "schedules#db_action", :as => "db_action"
+  patch "case/:case_id", :to => "schedules#booking", :as => "booking"
 
   root "users#index"
   mount ActionCable.server => '/cable'
