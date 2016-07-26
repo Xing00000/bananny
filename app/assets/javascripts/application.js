@@ -16,4 +16,4 @@
 //= require_tree .
 //= require bootstrap-sprockets
 //= require jquery.datetimepicker.full.min.js
-
+//= require cable

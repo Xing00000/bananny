@@ -8,7 +8,8 @@ class CommentsChannel < ApplicationCable::Channel
     Case.all.each do |a|
       stream_for a
     end
-    # stream_for Case.last
+    # # stream_for Case.last
+    # stream_from
   end
 
   def unsubscribed
