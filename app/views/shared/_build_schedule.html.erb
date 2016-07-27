@@ -1,4 +1,4 @@
-<h2>Build Schedule</h2>
+<h3>建立行事曆</h3>
 
 		<%=form_for build_schedule ,:url => nanny_schedules_path(nanny) do |f|%>
 	<%= f.text_field :start_date,"id" => "build-datetimepicker" ,:required => :true,:placeholder => "開始時間" ,:autocomplete =>"off" %>

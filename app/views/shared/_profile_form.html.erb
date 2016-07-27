@@ -3,40 +3,34 @@
     <%= form_for(profile) do |f| %>
 
       <div class="actions">
-        <div class="form-froup form-inline">
+        <div class="form-froup">
           <%= f.label :姓 %>
-           <%= f.text_field :last_name ,:required => :true ,:placeholder => "Last name" ,:autocomplete => :on ,:class=> "form-control"%>
+          <%= f.text_field :last_name ,:required => :true ,:placeholder => "Last name" ,:autocomplete => :on ,:class=> "form-control"%>
           <%= f.label :名 %>
           <%= f.text_field :first_name ,:required => :true ,:placeholder => "First name" ,:autocomplete => :on,:class=> "form-control" %>
-        </div>
-        <div class="form-froup form-inline">
+
           <%= f.label :小名 %>
           <%= f.text_field :nickname ,:required => :true ,:placeholder => "Nick name" ,:autocomplete => :on ,:class=> "form-control" %>
           <%= f.label :性別 %>
           <%= f.select :gender ,Profile::GENDER ,:class=> "form-control"%>
-        </div>
-        <div class="form-froup form-inline">
+
           <%= f.label :生日 %>
           <%= f.date_field :birthdate ,:required => true ,:class=> "form-control"%>
-        </div>
-        <div class="form-froup form-inline">
+
           <%= f.label :行動電話 %>
           <%= f.text_field :mobile_phone ,:required => :true ,:placeholder => "mobile_phone" ,:autocomplete => :on ,:class=> "form-control"%>
           <%= f.label :電話 %>
 
           <%= f.text_field :phone ,:required => :true ,:placeholder => "tel" ,:autocomplete => :on ,:class=> "form-control"%>
-        </div>
-        <div class="form-froup form-inline">
+
           <%= f.label :城市 %>
           <%= f.select :city ,Profile::CITY,:class=> "form-control" %>
           <%= f.label :行政區 %>
           <%= f.select :district ,Profile::DISTRICT,:class=> "form-control" %>
-        </div>
-        <div class="form-froup form-inline">
+
           <%= f.label :地址 %>
           <%= f.text_field :address ,:required => :true ,:placeholder => "address" ,:autocomplete => :on ,:class=> "form-control"%>
-        </div>
-        <div class="form-froup">
+
           <%= f.label :上傳照片 %>
           <%= f.file_field :image%>
           <%= f.submit %>
