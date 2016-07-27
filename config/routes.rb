@@ -4,12 +4,18 @@ Rails.application.routes.draw do
   # :constraints => { subdomain: 'api' }
   scope :path => '/api/v1/', :module => 'api_v1', :as => 'v1', :defaults => { :format => :json } do
     # resources :users, only: [:show] # for testing purposes only
-    post 'user' => 'users#show'
-    post 'search' => 'nannies#search'
+    post 'user' => 'users#user'
+    get 'search_nannies' => 'nannies#search'
 
-    resources :cases, only: [:new, :create, :update, :show, :destroy]
+    get 'build' => 'cases#build'
+    post 'cancel' => 'cases#cancel'
+    post 'reload' => 'cases#reload'
+    get 'message' => 'cases#message'
+    post 'book' => 'cases#book'
 
-    resources :ratings, only: [:show]
+    post 'rating' => 'ratings#rating'
+
+
   end
 
   resources :users do

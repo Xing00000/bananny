@@ -4,6 +4,11 @@ require "capistrano/setup"
 # Include default deployment tasks
 require "capistrano/deploy"
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> ba8ccf0f04f76f4d29b09e2c82fb119489803828
 # Include tasks from other gems included in your Gemfile
 #
 # For documentation on these, see for example:
@@ -14,6 +19,10 @@ require "capistrano/deploy"
 #   https://github.com/capistrano/bundler
 #   https://github.com/capistrano/rails
 #   https://github.com/capistrano/passenger
+<<<<<<< HEAD
+#
+=======
+>>>>>>> ba8ccf0f04f76f4d29b09e2c82fb119489803828
 require 'capistrano/rails'
 require 'capistrano/passenger'
 # require 'capistrano/rvm'
