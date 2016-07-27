@@ -77,17 +77,19 @@
 								<div class="row">
 
 									<div class="col-sm-3 col-xs-3 text-center">
+									<%= link_to(root_path) do %>
 						        <div class="service-box">
-						          <img class="icon" src="http://placehold.it/30x30">
+						          <%= image_tag("profile_tool_search.png") %>
 						          <h5>搜尋</h5>
 
 						        </div>
+						       <%end%>
 						      </div>
 
 						      <div class="col-sm-3 col-xs-3 text-center">
 						       <a href="<%=cases_path%>">
 							        <div class="service-box">
-							          <img class="icon" src="http://placehold.it/30x30">
+							          <%= image_tag("profile_tool_msg.png") %>
 							          <h5>訊息</h5>
 							        </div>
 										</a>
@@ -96,7 +98,7 @@
 						      <div class="col-sm-3 col-xs-3 text-center">
 						        <a href="<%=cases_path%>">
 							        <div class="service-box">
-							          <img class="icon" src="http://placehold.it/30x30">
+							          <%= image_tag("profile_tool_notification.png") %>
 							          <h5>通知</h5>
 
 							        </div>
@@ -107,7 +109,7 @@
 										<%= link_to(current_user.profile) do %>
 
 								      <div class="service-box">
-								        <img class="icon" src="http://placehold.it/30x30">
+								        <%= image_tag("profile_tool_settings.png") %>
 								        <h5>設定</h5>
 
 								      </div>

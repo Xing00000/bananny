@@ -48,7 +48,7 @@
 	position: relative;
   padding-left: 0;
   list-style: none;
-  background-image: url(baby_sleep.jpg);
+  background-image: url(<%= asset_path("baby_sleep.jpg") %>);
   /*background-size: 1080px 720px;*/
   background-repeat: no-repeat;
   height: 100%;
@@ -61,7 +61,7 @@
   background-position:center 60%;
   /*background-image: url(http://fluper.ru/ffh/22/aziatskie_modeli_1920x1200.jpg);*/
 
-  background-image: url('<%= asset_path("baby_sleep.jpg") %>');
+  background-image: url(<%= asset_path("474092.jpg") %>);
   background-size: 1920px 1280px;
 
 }
@@ -554,6 +554,10 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ { co
   width: 40px;
   display: block;
 }
+#shared-naver a{
+  text-decoration: none;
+  color: #7D7D7D;
+}
 
 /*nanny-show*/
 #profile-show{
@@ -598,10 +602,14 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ { co
 #profile-show .panel-footer{
   background: white;
 }
+#profile-show .panel-body{
+  padding-left: 60px;
+}
 
 #profile-show td.icon{
-  width:60px;
+  width:100px;
   vertical-align: middle;
+  text-align: center;
 }
 #profile-show td:nth-child(2){
   width: 400px;
@@ -616,4 +624,30 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ { co
 }
 #profile-show .panel-footer{
   background: white;
+}
+
+
+/*case_show*/
+.case_form .panel-default{
+  max-width: 800px;
+  margin: auto;
+}
+.case_form .panel-default h3{
+  color: #636CA3;
+  text-align: center;
+  font-weight: bold;
+}
+.case_form .panel-default h4{
+  color: #616F91;
+  font-size: 20px;
+  font-weight: bold;
+}
+.case_form .panel-heading{
+  padding: 20px 100px 20px 100px;
+  background-color:white;
+}
+.case_form .panel-body{
+  max-width: 600px;
+  margin: auto;
+
 }
