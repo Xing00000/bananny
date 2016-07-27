@@ -13,7 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require bootstrap-sprockets
-//= require jquery.datetimepicker.full.min.js
-
+//= require jquery.datetimepicker.full.min
+//= require cable
+//= dhtmlxscheduler
+//= require_tree .

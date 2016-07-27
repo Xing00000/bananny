@@ -23,94 +23,169 @@
 
 					</div>
 			</div>
-			<div class="panel-body text-center">
-				<div class="row">
-					<div class="col-sm-4 col-xs-4">
-						<div class="info-box">
-							<h3>197</h3>
-          			<p class="text-muted">這麼多爸媽都評價了<%= @nanny.last_name %>保母。</p>
-       			</div>
-					</div>
-					<div class="col-sm-4 col-xs-4">
-						<div class="info-box">
-							<h3>130</h3>
-          			<p class="text-muted">完成托育案件次數</p>
-       			</div>
-					</div>
-					<div class="col-sm-4 col-xs-4">
-						<div class="info-box">
-							<h3><%= distance_of_time_in_words_to_now(@nanny.info.since)%></h3>
-          			<p class="text-muted">托育經驗</p>
-       			</div>
-					</div>
 
-				</div>
-			</div>
-			<div class="panel-footer">
-				<table class="table .table-hover">
-					<tr>
-						<td class="icon"></td>
-						<td>
+			<%if @nanny.info%>
+				<div class="panel-body text-center">
+					<div class="row">
+						<div class="col-sm-4 col-xs-4">
 							<div class="info-box">
-							<h5>關於我</h5>
-          			<p class="text-muted">托育經驗</p>
-       				</div>
-						</td>
-						<td></td>
-					</tr>
+								<h3><%=@nanny.ratings.count%>30</h3>
+	          			<p class="text-muted">這麼多爸媽都評價了<%= @nanny.last_name %>保母。</p>
+	       			</div>
+						</div>
+						<div class="col-sm-4 col-xs-4">
+							<div class="info-box">
+								<h3><%=@nanny.info.case_done%>197</h3>
+	          			<p class="text-muted">完成托育案件次數</p>
+	       			</div>
+						</div>
+						<div class="col-sm-4 col-xs-4">
+							<div class="info-box">
+								<h3><%= distance_of_time_in_words_to_now(@nanny.info.since)%></h3>
+	          			<p class="text-muted">托育經驗</p>
+	       			</div>
+						</div>
 
-				</table>
-			</div>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<table class="table table-hover ">
+						<tr>
+							<td class="icon">
+								<%= image_tag("icon_details_03.png") %>
+							</td>
+							<td>
+								<div class="info-box">
+								<h5>關於我</h5>
+	          			<p class="text-muted"><%=@nanny.info.introduction%></p>
+	       				</div>
+							</td>
+							<td>
+
+							</td>
+						</tr>
+						<tr>
+							<td class="icon">
+								<%= image_tag("icon_nanny_resume_04.png") %>
+							</td>
+							<td>
+								<div class="info-box">
+								<h5>特殊托育經驗</h5>
+	          			<p class="text-muted"><%=@nanny.info.special%></p>
+	       				</div>
+							</td>
+							<td>
+
+							</td>
+						</tr>
+						<tr>
+							<td class="icon">
+								<%= image_tag("icon_nanny_resume_01.png") %>
+							</td>
+							<td>
+								<h5>拖育人員登記號碼</h5>
+							</td>
+							<td>
+								<p class="text-muted"><%=%></p>
+							</td>
+						</tr>
+						<tr>
+							<td class="icon">
+								<%= image_tag("icon_nanny_resume_02.png") %>
+							</td>
+							<td>
+								<h5>平日每小時收費(08:00~20:00)</h5>
+							</td>
+							<td>
+								<p class="text-muted">$ <%=@nanny.info.weekday_charge%> /hr</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="icon">
+								<%= image_tag("icon_nanny_resume_02.png") %>
+							</td>
+							<td>
+								<h5>六日及國定假日每小時收費(08:00~20:00)</h5>
+							</td>
+							<td>
+								<p class="text-muted">$ <%=@nanny.info.holiday_charge%> /hr</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="icon">
+								<%= image_tag("icon_nanny_resume_03.png") %>
+							</td>
+							<td>
+								<h5>每趟最低時限</h5>
+							</td>
+							<td>
+								<p class="text-muted"> <%=@nanny.info.min_hour%> hr</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="icon">
+								<%= image_tag("icon_nanny_resume_03.png") %>
+							</td>
+							<td>
+								<h5>特殊時段備註</h5>
+							</td>
+							<td>
+								<p class="text-muted"> <%=@nanny.info.def_special%></p>
+							</td>
+						</tr>
+						<tr>
+							<td class="icon">
+								<%= image_tag("icon_nanny_resume_02.png") %>
+							</td>
+							<td>
+								<h5>特殊時段每小時加收費</h5>
+							</td>
+							<td>
+								<p class="text-muted">$ <%=@nanny.info.special_charge %> /hr</p>
+							</td>
+						</tr>
+											<tr>
+							<td class="icon">
+								<%= image_tag("icon_nanny_resume_05.png") %>
+							</td>
+							<td>
+								<h5>爸媽評價</h5>
+							</td>
+							<td>
+								<p class="text-muted"></p>
+							</td>
+						</tr>
+					</table>
+				</div>
+			<%else%>
+				<%= link_to "建立保母資料",edit_info_path(@nanny),:class => "btn btn-primary"%>
+			<%end %>
+
+
 		</div>
 	</div>
 </div>
 
+<%if current_user == @nanny.user%>
 
-
-
-
-
-
-
-
-
-<%if nil%>
-<h2>Profile</h2>
-<%if %>
-	<% if current_user.profile.type == "Parent" && @nanny.info %>
-		<%= link_to "私訊",nanny_cases_path(@nanny),:method => :post,:class => "btn-lg btn-danger pull-right"%>
-	<%end %>
-<%end%>
-
-<br>
-<%= @nanny.last_name %>
-<%= @nanny.first_name %>
-
-<%if @nanny["image"]%>
-	<%= image_tag @nanny.image.thumb.url ,:class => "img-circle" %>
-<%end%>
-
-	<%= link_to "EDIT",edit_nanny_path(@nanny),:class => "btn btn-primary"%>
-
-<h2>Info</h2>
-
-
-	<%= link_to "EDIT",edit_info_path(@nanny),:class => "btn btn-primary"%>
-
-<%if @nanny.info%>
-	<%= @nanny.info.weekday_charge %>
-	<%= @nanny.info.holiday_charge %>
-<%end%>
-
-<div id="schedule">
-	<div id="bulid-schedule">
-		<%= render "shared/build_schedule", {:build_schedule => @schedule ,:nanny => @nanny } %>
-	</div>
 	<div class="container">
-		<div id="show-schedule">
-			<%= render "shared/schedule", :nanny => @nanny %>
+
+	  <div class="btn-group">
+	  	<%= link_to "編輯個人資料",edit_nanny_path(@nanny),:class => "btn btn-nanny"%>
+	  	<%= link_to "編輯收費資料",edit_info_path(@nanny),:class => "btn btn-baby-nanny"%>
+	  </div>
+	  <div id="schedule">
+			<div id="bulid-schedule">
+				<%= render "shared/build_schedule", {:build_schedule => @schedule ,:nanny => @nanny } %>
+			</div>
+
+			<div id="show-schedule">
+				<%= render "shared/schedule", :nanny => @nanny %>
+			</div>
+
 		</div>
 	</div>
-</div>
+
 
 <%end%>
+

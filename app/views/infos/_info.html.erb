@@ -1,16 +1,22 @@
 <%= form_for info do |f| %>
 
-  <div class="actions">
-    <%= f.number_field :weekday_charge ,:required => :true ,:placeholder => "weekday_charge" ,in: 100..1500, step: 50 %>
-    <%= f.number_field :holiday_charge ,:required => :true ,:placeholder => "holiday_charge" ,in: 100..1500, step: 50 %>
-    <%= f.number_field :special_charge ,:required => :true ,:placeholder => "special_charge",in: 100..1500, step: 50 %>
-    <%= f.number_field :min_hour ,:required => :true ,:placeholder => "min_hour" ,in: 0.5..12, step: 0.5  %>
-
-    <%= f.text_area :def_special,:placeholder => "def_special" %>
-    <%= f.text_area :special,:placeholder => "special" %>
-    <%= f.text_area :introduction ,:required => :true ,:placeholder => "introduction" %>
-
-    <%= f.date_field :since ,:required => true %>
+  <div class="actions" id="nanny-info">
+    <%= f.label :平日每小時收費 %>
+    <%= f.number_field :weekday_charge ,:required => :true ,:placeholder => "weekday_charge" ,in: 100..1500, step: 50,:class=> "form-control" %>
+    <%= f.label :六日及國定假日每小時收費 %>
+    <%= f.number_field :holiday_charge ,:required => :true ,:placeholder => "holiday_charge" ,in: 100..1500, step: 50 ,:class=> "form-control"%>
+    <%= f.label :特殊時段每小時加收費 %>
+    <%= f.number_field :special_charge ,:required => :true ,:placeholder => "special_charge",in: 100..1500, step: 50,:class=> "form-control" %>
+    <%= f.label :每趟最低時限 %>
+    <%= f.number_field :min_hour ,:required => :true ,:placeholder => "min_hour" ,in: 0.5..12, step: 0.5,:class=> "form-control"  %>
+    <%= f.label :特殊時段備註 %>
+    <%= f.text_area :def_special,:placeholder => "def_special",:class=> "form-control" %>
+    <%= f.label :特殊托育經驗 %>
+    <%= f.text_area :special,:placeholder => "special",:class=> "form-control" %>
+    <%= f.label :關於我 %>
+    <%= f.text_area :introduction ,:required => :true ,:placeholder => "introduction" ,:class=> "form-control"%>
+    <%= f.label :最早何時開始托育服務%>
+    <%= f.date_field :since ,:required => true ,:class=> "form-control"%>
 
     <%= f.submit %>
   </div>

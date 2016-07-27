@@ -1,6 +1,6 @@
 class ParentsController < ApplicationController
 	before_action :set_parent, only: [:show,:edit,:update]
-
+  before_action :user_should_be_registered ,:except=>[:new,:create]
 	def new
     @parent = current_user.build_parent
   end

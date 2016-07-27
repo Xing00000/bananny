@@ -1,0 +1,109 @@
+<%nanny= cases.nanny %>
+
+  <div class="panel panel-default">
+
+    <div class="panel-heading">
+        <h3>預約細節確認</h3>
+        <div class="row">
+            <div class="nanny-img col-dm-2 col-sm-2 col-xs-6">
+                <%= image_tag nanny.image.thumb.url ,:class => "img-circle" %>
+            </div>
+            <div class="col-dm-5 col-sm-5 col-xs-6">
+                <div class="last-name">
+                  <h4><%= nanny.last_name %> 保母</h4>
+                </div>
+            </div>
+            <div class="col-dm-5 col-sm-5 col-xs-6">
+
+
+            </div>
+            </div>
+            <div class="panel-body text-center">
+                <table class="table table-hover">
+                    <tr>
+                        <td class="icon">
+                            <%= image_tag("icon_nanny_resume_03.png") %>
+                        </td>
+                        <td>
+                            <h5>托育日期</h5>
+                        </td>
+                        <td>
+                            <p class="text-muted"><%=cases.start_date.to_date%></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="icon">
+                            <%= image_tag("icon_nanny_resume_03.png") %>
+                        </td>
+                        <td>
+                            <h5>托育時間</h5>
+                        </td>
+                        <td>
+                            <p class="text-muted"><%=cases.start_date.strftime('%H:%M')%>~<%=cases.end_date.strftime('%H:%M')%>(<%=(cases.end_date-cases.start_date)/3600%>hr)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="icon">
+                            <%= image_tag("icon_nanny_resume_03.png") %>
+                        </td>
+                        <td>
+                            <h5>每小時收費</h5>
+                        </td>
+                        <td>
+                            <p class="text-muted">$ <%=cases.charge_per_hour%> /hr</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="icon">
+                            <%= image_tag("icon_nanny_resume_03.png") %>
+                        </td>
+                        <td>
+                            <h5>總金額</h5>
+                        </td>
+                        <td>
+                            <p class="text-muted">約 $<%=(cases.end_date-cases.start_date)/3600*cases.charge_per_hour%></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="icon">
+                            <%= image_tag("icon_nanny_resume_03.png") %>
+                        </td>
+                        <td>
+                            <h5>托育地址</h5>
+                        </td>
+                        <td>
+                            <p class="text-muted"> <%=cases.city%> <%=cases.district%> <%=cases.address%></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="icon">
+                            <%= image_tag("icon_nanny_resume_03.png") %>
+                        </td>
+                        <td>
+                            <h5>緊急聯絡人</h5>
+                        </td>
+                        <td>
+                            <p class="text-muted"><%=cases.emergency_name %></p>
+                        </td>
+                    </tr>
+                  <tr>
+                        <td class="icon">
+                            <%= image_tag("icon_nanny_resume_03.png") %>
+                        </td>
+                        <td>
+                            <div class="info-box">
+                            <h5>備註</h5>
+                    <p class="text-muted"><%=cases.comment%></p>
+                    </div>
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+
+

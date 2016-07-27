@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # :constraints => { subdomain: 'api' }
   scope :path => '/api/v1/', :module => 'api_v1', :as => 'v1', :defaults => { :format => :json } do
     # resources :users, only: [:show] # for testing purposes only
-    get 'user' => 'users#user'
+    post 'user' => 'users#user'
     get 'search_nannies' => 'nannies#search'
 
     get 'build' => 'cases#build'
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     with_options only: :new do |new_only|
       new_only.resources :nannies, :parents
     end
+    get :registered, :on => :member
   end
 
   resources :nannies do

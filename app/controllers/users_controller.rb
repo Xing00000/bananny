@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	before_action :user_should_be_registered ,:except=>[:index,:registered]
 	layout "index"
 
 	def index
@@ -8,5 +9,8 @@ class UsersController < ApplicationController
       @search_nanny = search_nanny(params)
       @start_date = start_date(params)
     end
+	end
+
+	def registered
 	end
 end

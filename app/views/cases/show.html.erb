@@ -1,20 +1,20 @@
-<h1>case</h1>
+<div class="container">
+	<div class="case_form">
+		<%= render :partial => "shared/case_formshow",:locals => { cases: @cases} %>
+	</div>
 
+	<div class="case-status">
+		<%= render :partial => "shared/case_status",:locals => { cases: @cases} %>
+	</div>
 
-<div class="case_form">
-	<%= render :partial => "shared/case_form",:locals => { cases: @cases} %>
+	<div id="comments" class="case-comment">
+		<%=form_for @new_comment,:url => case_comments_path(@cases),remote: true do |c|%>
+			<%= c.text_field :comment, required: true,:class => "form-control" %>
+			<%= c.submit :class => "btn btn-primary pull-right" %>
+		<%end%>
+
+		<%= render :partial => "shared/comments",:locals => { comments: @cases.comments} %>
+	</div>
+
+	</div>
 </div>
-
-<div class="case-status">
-	<%= render :partial => "shared/case_status",:locals => { cases: @cases} %>
-</div>
-
-<div id="comments" class="case-comment">
-
-	<%= render :partial => "shared/comments",:locals => { comments: @cases.comments} %>
-</div>
-	<%=form_for @new_comment,:url => case_comments_path(@cases),remote: true do |c|%>
-		<%= c.text_field :comment, required: true,:class => "form-control" %>
-		<%= c.submit :class => "btn btn-primary pull-right" %>
-	<%end%>
-

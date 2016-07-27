@@ -1,0 +1,26 @@
+ <% if current_user && current_user.registered? == nil%>
+    <div class="container">
+			<h3 class="text-center">請完成註冊喔!</h3>
+      <div class="row" id="user-booking">
+        <div class="col-md-6 col-xs-12 text-center">
+          <%= link_to new_user_nanny_path(current_user) do %>
+            <div class="service-box">
+              <%= image_tag("mainpage_user_02.png") %>
+              <h3>保母註冊</h3>
+            </div>
+          <%end%>
+        </div>
+        <div class="col-md-6 col-xs-12 text-center">
+          <%= link_to new_user_parent_path(current_user) do %>
+            <div class="service-box">
+              <%= image_tag("mainpage_user_02.png") %>
+              <h3>爸媽註冊</h3>
+            </div>
+          <%end%>
+        </div>
+
+      </div>
+    </div>
+  <% end %>
+
+

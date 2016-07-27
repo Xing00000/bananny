@@ -48,7 +48,7 @@
 	position: relative;
   padding-left: 0;
   list-style: none;
-  background-image: url(baby_sleep.jpg);
+  background-image: url(<%= asset_path("baby_sleep.jpg") %>);
   /*background-size: 1080px 720px;*/
   background-repeat: no-repeat;
   height: 100%;
@@ -59,8 +59,13 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position:center 60%;
-  background-image: url(https://qzprod.files.wordpress.com/2016/04/ap_518518268401-cropped.jpg?quality=80&strip=all&w=1600);
+
+  /*background-image: url(https://qzprod.files.wordpress.com/2016/04/ap_518518268401-cropped.jpg?quality=80&strip=all&w=1600);*/
   /*background-image: url(baby_sleep.jpg);*/
+  /*background-image: url(http://fluper.ru/ffh/22/aziatskie_modeli_1920x1200.jpg);*/
+
+  background-image: url(<%= asset_path("474092.jpg") %>);
+  background-size: 1920px 1280px;
 
 }
 
@@ -552,6 +557,10 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ { co
   width: 40px;
   display: block;
 }
+#shared-naver a{
+  text-decoration: none;
+  color: #7D7D7D;
+}
 
 /*nanny-show*/
 #profile-show{
@@ -590,4 +599,70 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ { co
   width: 120px;
   color: #000000;
   margin: 0px auto;
+}
+
+/*nanny_show*/
+#profile-show .panel-footer{
+  background: white;
+}
+#profile-show .panel-body{
+  padding-left: 60px;
+}
+
+#profile-show td.icon{
+  width:100px;
+  vertical-align: middle;
+  text-align: center;
+}
+#profile-show td:nth-child(2){
+  width: 400px;
+  color: #7A7A7A;
+  font-size:16px ;
+
+}
+#profile-show td:nth-child(3) p{
+  color: #000000;
+  font-size:16px
+
+}
+#profile-show .panel-footer{
+  background: white;
+}
+
+
+/*case_show*/
+.case_form .panel-default{
+  max-width: 800px;
+  margin: auto;
+}
+.case_form .panel-default h3{
+  color: #636CA3;
+  text-align: center;
+  font-weight: bold;
+}
+.case_form .panel-default h4{
+  color: #616F91;
+  font-size: 20px;
+  font-weight: bold;
+}
+.case_form .panel-heading{
+  padding: 20px 100px 20px 100px;
+  background-color:white;
+}
+.case_form .panel-body{
+  max-width: 600px;
+  margin: auto;
+
+}
+
+/*profile-form*/
+
+#profile-form{
+  max-width: 800px;
+  margin: 0px auto;
+}
+/*index-registered*/
+#index-registered{
+  padding-top: 50px;
+
 }
