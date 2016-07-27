@@ -62,7 +62,8 @@
   /*background-image: url(http://fluper.ru/ffh/22/aziatskie_modeli_1920x1200.jpg);*/
   /*background-image: url(474092.jpg);*/
 
-  background-image: image_tag("474092");
+  background-image: image-url("474092.jpg");
+  /*url(<%= asset_path '474092.jpg' %>);*/
   background-size: 1920px 1280px;
 
 }
