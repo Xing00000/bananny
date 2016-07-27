@@ -14,17 +14,17 @@ class ApplicationController < ActionController::Base
 
  	def start_date(params)
 		if params[:date]
-			(params[:date] +" "+ params[:start_date]).to_time(:utc)
+			(params[:date] +" "+ params[:start_date]).to_time
 		else
-			params[:start_date].to_time(:utc)
+			params[:start_date].to_time
 		end
 	end
 
 	def end_date(params)
 		if params[:date]
-			(params[:date] +" "+ params[:end_date]).to_time(:utc)
+			(params[:date] +" "+ params[:end_date]).to_time
 		else
-			params[:end_date].to_time(:utc)
+			params[:end_date].to_time
 		end
 	end
 
@@ -45,4 +45,6 @@ class ApplicationController < ActionController::Base
 			redirect_to registered_user_path(current_user)
 		end
 	end
+
+
 end

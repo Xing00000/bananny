@@ -26,7 +26,7 @@ class SchedulesController < ApplicationController
   def create
     @nanny = Nanny.find(params[:nanny_id])
     input = count_input_times(schedule_params)
-    start_date = schedule_params[:start_date].to_time(:utc)
+    start_date = schedule_params[:start_date].to_time
 
     time1 = 0
     time2 = 1800

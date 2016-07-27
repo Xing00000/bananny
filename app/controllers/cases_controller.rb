@@ -7,7 +7,7 @@ class CasesController < ApplicationController
 	def create
 		@nanny = Nanny.find_by(:id => params[:nanny_id])
 
-		if @nanny.cases.where(:start_date => session["search_nanny"]["start_date"].to_time(:utc)).where(:end_date => session["search_nanny"]["end_date"].to_time(:utc)).where(:status => :build).first == nil
+		if @nanny.cases.where(:start_date => session["search_nanny"]["start_date"].to_time).where(:end_date => session["search_nanny"]["end_date"].to_time).where(:status => :build).first == nil
 
 			@case = @nanny.cases.create!(
 				:emergency_number => current_user.profile.mobile_phone,
@@ -16,8 +16,8 @@ class CasesController < ApplicationController
 		    :district => current_user.profile.district,
 		    :address => current_user.profile.address,
 		    :parent_id => current_user.parent.id,
-		    :start_date => session["search_nanny"]["start_date"].to_time(:utc),
-		    :end_date => session["search_nanny"]["end_date"].to_time(:utc),
+		    :start_date => session["search_nanny"]["start_date"].to_time,
+		    :end_date => session["search_nanny"]["end_date"].to_time,
 		    :status => "build",
 		    :charge_per_hour => @nanny.info.weekday_charge)
 			redirect_to case_path(@case)

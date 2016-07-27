@@ -19,9 +19,10 @@
 	scheduler.config.xml_date="%Y-%m-%d %H:%i";
   scheduler.config.time_step = 30;
   scheduler.config.max_month_events = 5;
-
+  scheduler.config.server_utc = true;
   scheduler.init("scheduler_here");
   scheduler.load("<%= data_nanny_path(nanny) %>", "json");
+
 <%if nil%>
   var dp = new dataProcessor("<%= db_action_path(nanny) %>");
   dp.init(scheduler);
