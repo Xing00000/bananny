@@ -41,20 +41,14 @@ gem 'mini_magick'
 
 gem 'simple_form'
 
-<<<<<<< HEAD
-gem 'capistrano-rails', :group => :development
 
-gem 'capistrano-passenger', :group => :development
-
-gem "mysql2"
-=======
 gem 'redis'
 
 gem 'mysql2'
 
 gem 'capistrano-rails', :group => :development
 gem 'capistrano-passenger', :group => :development
->>>>>>> ba8ccf0f04f76f4d29b09e2c82fb119489803828
+
 
 
 group :development, :test do
