@@ -1,5 +1,6 @@
-<h1>New Nanny</h1>
 
-<%= render :partial => "shared/profile_form",:locals => { profile: @nanny} %>
+<div class="container">
+	<h2 class="text-center">New Nanny</h2>
+	<%= render :partial => "shared/profile_form",:locals => { profile: @nanny} %>
+</div>
 
-<%= link_to 'Back', root_path %>

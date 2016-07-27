@@ -1,5 +1,6 @@
 class NanniesController < ApplicationController
   before_action :authenticate_user!
+  before_action :user_should_be_registered ,:except=>[:new,:create]
   before_action :set_nanny, only: [:show, :edit, :update, :destroy,:data]
 
 

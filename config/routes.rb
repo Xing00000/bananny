@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     with_options only: :new do |new_only|
       new_only.resources :nannies, :parents
     end
+    get :registered, :on => :member
   end
 
   resources :nannies do
