@@ -48,13 +48,21 @@
 							<div class="media">
 
 									<div class="media-left col-md-4 col-sm-12 col-xs-12 pull-left">
-										<%= image_tag current_user.profile.image.medium_150.url ,:class => "img-circle" %>
+										<%if current_user.registered_and_photo? %>
+											<%= image_tag current_user.profile.image.medium_150.url ,:class => "img-circle" %>
+										<%else%>
+											<%=image_tag("icon_mainpage_profile.png", size: "150x150",:class => "img-circle") %>
+										<%end%>
 									</div>
 
 									<div class="media-right col-md-8 col-sm-12 col-xs-12 clearfix">
 
 										<div class="last-name pull-left">
-											<h2><%= current_user.profile.last_name %> 媽咪</h2>
+											<%if current_user.registered? %>
+												<h2><%= current_user.profile.last_name %> 媽咪</h2>
+											<%else%>
+
+											<%end%>
 										</div>
 										<div class="rate-start pull-left">
 											<%= render "shared/rate_star" %>

@@ -12,7 +12,11 @@ class User < ApplicationRecord
 
 
   def registered?
-  	self.parent || self.nanny
+  	self.profile
+  end
+
+  def registered_and_photo?
+    self.profile && self.profile.image
   end
 
   def generate_authentication_token
