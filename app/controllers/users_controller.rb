@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	before_action :user_should_be_registered ,:except=>[:index,:registered]
-	layout "index"
+	layout "index" ,:only => :index
 
 	def index
 		if params[:start_date] != nil && params[:end_date] != nil
