@@ -1,30 +1,78 @@
 
 <%if current_user.profile.type == "Nanny"%>
-  <tr>
+  <div class="css_tr">
     <div class="row">
       <div class="col-sm-6 col-xs-12">
-        <td><%=cases.start_date.to_date%></td>
-        <td><%=cases.show_time%> (<%=cases.show_hour%>hr)</td>
 
-        <td><%= render :partial => "shared/span_status" ,:locals => {:status => cases.status} %></td>
-        <td>
-          <%=link_to cases.parent do%>
-            <div class="img-box text-center">
-              <%=image_tag cases.parent.image.thumb ,size:"60x60",:class =>"img-circle" if cases.parent.image %>
-              <p><%=cases.emergency_name%></p>
-            </div>
-          <%end%>
-        </td>
+          <div class="css_td">
+            <%=link_to cases.parent do%>
+             <%=image_tag cases.parent.image.thumb ,:class =>"img-circle" if cases.parent.image %>
+            <%end%>
+          </div>
+          <div class="css_td">
+            <%=link_to cases.parent do%>
+              <%=cases.emergency_name%>
+            <%end%>
+          </div>
+
+        <div class="css_td "><%=cases.start_date.to_date%></div>
+        <div class="css_td "><%=cases.show_time%> (<%=cases.show_hour%>hr)</div>
+
       </div>
       <div class="col-sm-6 col-xs-12">
-        <td><%=cases.district%></td>
-        <td>
-          <td><%= render :partial => "shared/case_status" ,:locals => {:cases => cases} %></td>
-        </td>
-        <td>
-          <%=link_to("查看",case_path(cases), :class=> "btn btn-nanny")%>
-        </td>
+        <div class="css_td"><%=cases.district%></div>
+        <div class="css_td">
+            <%=link_to("查看",case_path(cases), :class=> "btn btn-info")%>
+        </div>
+
+          <div class="css_td">
+           <%= render :partial => "shared/case_status" ,:locals => {:cases => cases} %>
+          </div>
+
+
+           <div class="css_td ">
+            <%= render :partial => "shared/span_status" ,:locals => {:status => cases.status} %>
+          </div>
+
       </div>
     </div>
-  </tr>
+  </div>
+<%else%>
+   <div class="css_tr">
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+
+          <div class="css_td">
+            <%=link_to cases.nanny do%>
+             <%=image_tag cases.nanny.image.thumb ,:class =>"img-circle" if cases.nanny.image %>
+            <%end%>
+          </div>
+          <div class="css_td">
+            <%=link_to cases.nanny do%>
+              <%=cases.nanny.last_name%>保母
+            <%end%>
+          </div>
+
+        <div class="css_td "><%=cases.start_date.to_date%></div>
+        <div class="css_td "><%=cases.show_time%> (<%=cases.show_hour%>hr)</div>
+
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        <div class="css_td">$<%=(cases.end_date-cases.start_date)/3600*cases.charge_per_hour%></div>
+        <div class="css_td">
+            <%=link_to("查看",case_path(cases), :class=> "btn btn-info")%>
+        </div>
+
+          <div class="css_td">
+           <%= render :partial => "shared/case_status" ,:locals => {:cases => cases} %>
+          </div>
+
+
+           <div class="css_td ">
+            <%= render :partial => "shared/span_status" ,:locals => {:status => cases.status} %>
+          </div>
+
+      </div>
+    </div>
+  </div>
 <%end%>

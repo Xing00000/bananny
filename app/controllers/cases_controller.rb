@@ -22,7 +22,7 @@ class CasesController < ApplicationController
 		    :charge_per_hour => @nanny.info.weekday_charge)
 			redirect_to case_path(@case)
 		else
-			redirect_to @nanny.cases.where(:start_date => session["search_nanny"]["start_date"].to_time(:utc),:end_date => session["search_nanny"]["end_date"].to_time(:utc),).where(:status => :build).first
+			redirect_to @nanny.cases.where(:start_date => session["search_nanny"]["start_date"].to_time,:end_date => session["search_nanny"]["end_date"].to_time).where(:status => :build).first
 		end
 	end
 
@@ -40,7 +40,7 @@ class CasesController < ApplicationController
     respond_to do |format|
       if @case.update(case_params)
         if @case.status == "cancel"
-        	format.html { redirect_to root_path, notice: '取消' }
+        	format.html { redirect_to cases_path, notice: '取消' }
       	else
       		format.html { redirect_to @case, notice: 'case was successfully updated.' }
       	end

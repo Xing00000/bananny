@@ -1,16 +1,16 @@
 	<div class="form-group">
 		<%= form_tag root_path ,:method => :get do %>
 			<div class="date">
-				<%= text_field_tag :date, "#{}","id" => "datetimepicker" ,:required => :true,:placeholder => "日期" ,:autocomplete =>"off" %>
+				<%= text_field_tag :date, "#{session["search_nanny"]["date"] if session["search_nanny"] }","id" => "datetimepicker" ,:required => :true,:placeholder => "日期" ,:autocomplete =>"off" %>
 			</div>
 			<div class="start_date">
-				<%= text_field_tag :start_date,"#{}" ,"id" => "datetimepicker2",:required => :true ,:placeholder => "開始時間",:autocomplete =>"off" %>
+				<%= text_field_tag :start_date,"#{session["search_nanny"]["start_date"] if session["search_nanny"]}" ,"id" => "datetimepicker2",:required => :true ,:placeholder => "開始時間",:autocomplete =>"off" %>
 			</div>
 			<div class="greater-than">
 
 			</div>
 			<div class="end-date">
-				<%= text_field_tag :end_date,"#{}" ,"id" => "datetimepicker3",:required => :true ,:placeholder => "結束時間",:autocomplete =>"off" %>
+				<%= text_field_tag :end_date,"#{session["search_nanny"]["end_date"] if session["search_nanny"]}" ,"id" => "datetimepicker3",:required => :true ,:placeholder => "結束時間",:autocomplete =>"off" %>
 			</div>
 			<div class="area">
 				<%= select :district,:district,Profile::DISTRICT,:required => :true ,:placeholder => "請輸入區域",:autocomplete =>"off" %>
