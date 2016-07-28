@@ -1,4 +1,26 @@
+<div class="cases_index" id="cases_index">
+	<div class="container text-center">
+		<h3>您有<%=@cases.count%>筆預約紀錄</h3>
 
-<h1>預約紀錄</h1>
+			<table class="table table-hover" id="cases_table">
+				<tr>
+					<div class="row">
+      			<div class="col-sm-6 col-xs-12">
+							<th>日期</th>
+							<th>時間</th>
+							<th>預約狀態</th>
+							<th>聯絡人</th>
+						</div>
+						<div class="col-sm-6 col-xs-12">
+							<th>地點</th>
+							<th>詳細資料</th>
+							<th></th>
+						</div>
+					</div>
+				</tr>
 
-<%= render 'cases_list', :cases => @cases %>
+					<%= render :partial => "cases_list" ,:collection => @cases, :as => :cases %>
+
+			</table>
+	</div>
+</div>

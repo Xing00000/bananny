@@ -39,7 +39,7 @@
                             <h5>托育時間</h5>
                         </td>
                         <td>
-                            <p class="text-muted"><%=cases.start_date.strftime('%H:%M')%>~<%=cases.end_date.strftime('%H:%M')%>(<%=(cases.end_date-cases.start_date)/3600%>hr)</p>
+                            <p class="text-muted"><%=cases.show_time%> (<%=cases.show_hour%>hr)</p>
                         </td>
                     </tr>
                     <tr>

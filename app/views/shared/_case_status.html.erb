@@ -1,4 +1,4 @@
-<div class="btngroup">
+<div class="btn-group">
         <%if user = current_user.profile %>
             <% if user.type == "Parent" %>
                 <%= link_to "取消",case_path(cases,:case =>{:status => "cancel"}),:method => :patch,:class => "btn-lg btn-danger pull-right"%>

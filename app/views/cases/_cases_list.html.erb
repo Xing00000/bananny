@@ -1,0 +1,30 @@
+
+<%if current_user.profile.type == "Nanny"%>
+  <tr>
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+        <td><%=cases.start_date.to_date%></td>
+        <td><%=cases.show_time%> (<%=cases.show_hour%>hr)</td>
+
+        <td><%= render :partial => "shared/span_status" ,:locals => {:status => cases.status} %></td>
+        <td>
+          <%=link_to cases.parent do%>
+            <div class="img-box text-center">
+              <%=image_tag cases.parent.image.thumb ,size:"60x60",:class =>"img-circle" if cases.parent.image %>
+              <p><%=cases.emergency_name%></p>
+            </div>
+          <%end%>
+        </td>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        <td><%=cases.district%></td>
+        <td>
+          <td><%= render :partial => "shared/case_status" ,:locals => {:cases => cases} %></td>
+        </td>
+        <td>
+          <%=link_to("查看",case_path(cases), :class=> "btn btn-nanny")%>
+        </td>
+      </div>
+    </div>
+  </tr>
+<%end%>
