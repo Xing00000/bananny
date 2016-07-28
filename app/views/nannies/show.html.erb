@@ -21,7 +21,7 @@
 						</div>
 					</div>
 					<div class="col-dm-5 col-sm-5 col-xs-6">
-						<%if session["search_nanny"]%>
+						<%if session["search_nanny"] && @nanny.check_schedule?(session["search_nanny"]) %>
 							<% if current_user.profile.type == "Parent" && @nanny.info %>
 								<%= link_to "預約",nanny_cases_path(@nanny),:method => :post,:class => "btn btn-nanny pull-right"%>
 								<%= link_to "聊聊",nanny_cases_path(@nanny),:method => :post,:class => "btn btn-baby-nanny pull-right"%>
