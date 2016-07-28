@@ -4,7 +4,7 @@
 <%= @parent.first_name %>
 
 <%if @parent["image"]%>
-	<%= image_tag @parent.image.url %>
+	<%= image_tag @parent.image %>
 <%end%>
 
 	<%= link_to "EDIT",edit_parent_path(@parent),:class => "btn btn-primary"%>

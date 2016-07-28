@@ -6,13 +6,13 @@
 			  <h4 class="media-heading"> <%=c.comment%></h4>
 	 		</div>
 	 		<div class="media-right">
-				<%= image_tag c.user.profile.image.thumb.url,:class => "img-circle" %>
+				<%= image_tag c.user.profile.image.thumb,:class => "img-circle" %>
 			</div>
 		</div>
 	<%else%>
 		<div class="media ">
 			<div class="media-left">
-				<%= image_tag c.user.profile.image.thumb.url,:class => "img-circle" %>
+				<%= image_tag c.user.profile.image.thumb,:class => "img-circle" %>
 			</div>
 			<div class="media-body well">
 			  <h4 class="media-heading"> <%=c.comment%></h4>

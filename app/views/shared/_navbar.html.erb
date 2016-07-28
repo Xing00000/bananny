@@ -49,7 +49,7 @@
 
 									<div class="media-left col-md-4 col-sm-12 col-xs-12 pull-left">
 										<%if current_user.registered_and_photo? %>
-											<%= image_tag current_user.profile.image.medium_150.url ,:class => "img-circle" %>
+											<%= image_tag current_user.profile.image.medium_150 ,:class => "img-circle" %>
 										<%else%>
 											<%=image_tag("icon_mainpage_profile.png", size: "150x150",:class => "img-circle") %>
 										<%end%>
