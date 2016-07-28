@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+
   # :constraints => { subdomain: 'api' }
   scope :path => '/api/v1/', :module => 'api_v1', :as => 'v1', :defaults => { :format => :json } do
     # resources :users, only: [:show] # for testing purposes only
