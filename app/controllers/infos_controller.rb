@@ -46,6 +46,9 @@ class InfosController < ApplicationController
     end
 
     def info_params
-      params.require(:info).permit(:weekday_charge,:holiday_charge,:special_charge,:min_hour,:def_special,:special,:introduction,:since)
+      params.require(:info).permit( :weekday_charge,:holiday_charge,:special_charge,
+                                    :min_hour,:def_special,:special,:introduction,
+                                    :since, :age_0_to_1_cases_done, :age_1_to_5_cases_done,
+                                    :lind_id, :qualification,:license_number)
     end
 end

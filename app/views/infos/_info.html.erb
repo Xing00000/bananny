@@ -17,6 +17,16 @@
     <%= f.text_area :introduction ,:required => :true ,:placeholder => "introduction" ,:class=> "form-control"%>
     <%= f.label :最早何時開始托育服務%>
     <%= f.date_field :since ,:required => true ,:class=> "form-control"%>
+    <%= f.label :接過一歲以下的寶寶案件數%>
+    <%= f.text_field :age_0_to_1_cases_done, :required => true ,:class=> "form-control"%>
+    <%= f.label :接過一歲到五歲的寶寶案件數%>
+    <%= f.text_field :age_1_to_5_cases_done, :required => true ,:class=> "form-control"%>
+    <%= f.label :Line_ID%>
+    <%= f.text_field :lind_id ,:required => true ,:class=> "form-control"%>
+    <%= f.label :專業資格%>
+    <%= f.select :qualification ,Info::PROFESSIONAL ,:required => true ,:class=> "form-control"%>
+    <%= f.label :托育人員登記號碼%>
+    <%= f.text_field :license_number ,:required => true ,:class=> "form-control"%>
 
     <%= f.submit %>
   </div>
