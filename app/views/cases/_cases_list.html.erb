@@ -22,7 +22,7 @@
       <div class="col-sm-6 col-xs-12">
         <div class="css_td"><%=cases.district%></div>
         <div class="css_td">
-            <%=link_to("查看",case_path(cases), :class=> "btn btn-info")%>
+            <%=link_to("查看",case_path(cases), :class=> "btn btn-warning")%>
         </div>
 
           <div class="css_td">
@@ -60,7 +60,7 @@
       <div class="col-sm-6 col-xs-12">
         <div class="css_td">$<%=(cases.end_date-cases.start_date)/3600*cases.charge_per_hour%></div>
         <div class="css_td">
-            <%=link_to("查看",case_path(cases), :class=> "btn btn-info")%>
+            <%=link_to("查看",case_path(cases), :class=> "btn btn-warning")%>
         </div>
 
           <div class="css_td">

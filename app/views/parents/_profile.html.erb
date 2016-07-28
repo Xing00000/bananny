@@ -1,0 +1,16 @@
+<li>
+  <div class="timeline-image">
+    <%=image_tag profile.image.medium , :class =>"img-circle img-responsive" %>
+  </div>
+  <div class="timeline-panel">
+      <div class="timeline-heading">
+        <h4><%=profile.nickname%></h4>
+        <h4 class="subheading"><%=profile.gender =="FEMALE"? "女孩" : "男孩" %> <%=profile.count_month%>個月</h4>
+      </div>
+      <div class="timeline-body">
+        <p class="text-muted">
+        很會流口水
+        </p>
+      </div>
+    </div>
+</li>
