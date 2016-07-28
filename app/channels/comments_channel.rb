@@ -10,9 +10,9 @@ class CommentsChannel < ApplicationCable::Channel
     # c = Case.find(params[:case_id])
     # stream_for c
 
-    Case.all.each do |a|
-      stream_for a
-    end
+    # Case.all.each do |a|
+    #   stream_for a
+    # end
     # stream_for comment.case
     # stream_from
   end

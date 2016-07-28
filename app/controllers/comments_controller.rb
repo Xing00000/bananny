@@ -3,9 +3,9 @@ class CommentsController < ApplicationController
 		@case = Case.find_by(:id => params[:case_id])
 
 		if current_user == @case.parent.user || current_user == @case.nanny.user
-			comment = @case.comments.create!(:comment => comment_params[:comment],:user_id => current_user.id	)
+			@comment = @case.comments.create!(:comment => comment_params[:comment],:user_id => current_user.id	)
 
-			CommentsChannel.broadcast(comment)
+			# CommentsChannel.broadcast(comment)
 		end
 		respond_to do |format|
       format.html { redirect_to @case }
