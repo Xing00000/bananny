@@ -1,0 +1,27 @@
+
+  <div class="profile-form" id="profile-form">
+    <%= form_for(profile) do |f| %>
+
+      <div class="actions">
+        <div class="form-froup">
+          <%= f.label :姓 %>
+          <%= f.text_field :last_name ,:required => :true ,:placeholder => "Last name" ,:autocomplete => :on ,:class=> "form-control"%>
+          <%= f.label :名 %>
+          <%= f.text_field :first_name ,:required => :true ,:placeholder => "First name" ,:autocomplete => :on,:class=> "form-control" %>
+
+          <%= f.label :小名 %>
+          <%= f.text_field :nickname ,:required => :true ,:placeholder => "Nick name" ,:autocomplete => :on ,:class=> "form-control" %>
+          <%= f.label :性別 %>
+          <%= f.select :gender ,Profile::GENDER ,:class=> "form-control"%>
+
+          <%= f.label :生日 %>
+          <%= f.date_field :birthdate ,:required => true ,:class=> "form-control"%>
+
+          <%= f.label :上傳照片 %>
+          <%= f.file_field :image%>
+          <%= f.submit %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
