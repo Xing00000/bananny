@@ -1,6 +1,14 @@
 
 <div class="img-rounded" id="profile-show">
 	<div class="container">
+		<div class="info-box text-center">
+			<%if session["search_nanny"]%>
+				<h4>目前搜尋時間：<%=session["search_nanny"]["date"] %>
+				<%=session["search_nanny"]["start_date"]%> ~
+				<%=session["search_nanny"]["end_date"]%></h4>
+			<%end%>
+		</div>
+
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<div class="row">

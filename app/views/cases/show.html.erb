@@ -2,22 +2,39 @@
 	<div class="case_form">
 		<%= render :partial => "shared/case_formshow",:locals => { cases: @cases} %>
 	</div>
+</div>
 
+<div id="case-status">
 	<div class="case-status">
 		<%= render :partial => "shared/case_status",:locals => { cases: @cases} %>
 	</div>
-
-	<div id="comments" class="case-comment">
-		<%=form_for @new_comment,:url => case_comments_path(@cases),remote: true do |c|%>
-			<%= c.text_field :comment, required: true,:class => "form-control" %>
-			<%= c.submit :class => "btn btn-primary pull-right" %>
-		<%end%>
-
-		<%= render :partial => "shared/comments",:locals => { comments: @cases.comments} %>
-	</div>
-
-	</div>
 </div>
+
+
+<div id="case-chat">
+
+			<div class="row" id="create-comment">
+				<div class="col-xs-3 col-sm-2 pull-right">
+					<%= image_tag current_user.profile.image.thumb,:class => "img-circle" %>
+				</div>
+				<div class="col-xs-9 col-sm-10 pull-right">
+					<div class="form-group">
+						<%=form_for @new_comment,:url => case_comments_path(@cases),remote: true do |c|%>
+
+						  <%= c.text_field :comment, required: true,:placeholder => "請輸入訊息" ,:class => "form-control" %>
+						  <%= c.submit "送出",:class => "btn btn-info pull-right" %>
+						<%end%>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<%= render :partial => "shared/comments",:locals => { comments: @comments} %>
+
+
+</div>
+
+</div>
+
 
 <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
 <script>
