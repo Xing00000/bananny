@@ -7,9 +7,11 @@
                     <%= link_to "預約",case_path(cases,:case =>{:status => "booking"}),:method => :patch,:class => "btn btn-primary pull-right"%>
                  <%end%>
                 <%= link_to "取消",case_path(cases,:case =>{:status => "cancel"}),:method => :patch,:class => "btn btn-danger pull-right"%>
+
             <%else%>
 
                 <%if cases.status == "booking" %>
+
                     <%= link_to "確認",booking_path(cases,:confirm => true),:method => :patch,:class => "btn btn-primary"%>
                     <%= link_to "取消",case_path(cases,:case =>{:status => "cancel"}),:method => :patch,:class => "btn btn-danger"%>
 
