@@ -36,6 +36,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def search_nanny(params)
+		# nanny_ids = Schedule.find_available_nannies(start_date(params), end_date(params))
 	 	nanies = Schedule.where("start_date>=? and start_date < ?",start_date(params) ,end_date(params)).where(:case_id => nil).group(:nanny_id).count.select {|k,v| v >= count_input_times(params)}.keys
 		Nanny.find(nanies)
 	end
