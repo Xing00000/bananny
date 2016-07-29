@@ -1,5 +1,5 @@
 class APIV1::CasesController < APIController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def build
     # check start_date and end_date
@@ -7,8 +7,9 @@ class APIV1::CasesController < APIController
 
     @case = Case.create( :nanny_id => params[:nanny_id],
                          :start_date => params[:start_date],
-                         :end_date => params[:end_date],
-                         :status => 'built' )
+                         :end_date => params[:end_date] ,
+                         :parent_id => current_user.id)
+    @case.status = 'built'
     # id
     # params[:schedule_arr].each do |schedule_id|
     #   schedule = Schedule.find(schedule_id)
@@ -21,7 +22,8 @@ class APIV1::CasesController < APIController
   def message
     @case = Case.find(params[:id])
     @comment = Comment.create( :case_id => @case.id,
-                               :comment => params[:comment] )
+                               :comment => params[:comment],
+                               :user_id => current_user.id )
     @case.status = 'built'
   end
 
