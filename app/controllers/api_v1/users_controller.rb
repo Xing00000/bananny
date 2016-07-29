@@ -7,8 +7,8 @@ class APIV1::UsersController < APIController
   # render parent: first_name, last_name
   # render items: avg of scores
   def user
-    # @user = current_user
-    @user = User.find 486 # for testing purposes only
+    @user = current_user
+    # @user = User.find 486 # for testing purposes only
     @parent = @user.parent
     @items = @parent.items
     @items_avg = @items.average(:scored).to_f.round(2)
