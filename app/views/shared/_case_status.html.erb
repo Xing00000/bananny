@@ -1,12 +1,12 @@
 
         <%if user = current_user.profile %>
             <% if user.type == "Parent" %>
-                <%= link_to "取消",case_path(cases,:case =>{:status => "cancel"}),:method => :patch,:class => "btn btn-danger pull-right"%>
+
                 <%case cases.status%>
                 <% when "build" %>
                     <%= link_to "預約",case_path(cases,:case =>{:status => "booking"}),:method => :patch,:class => "btn btn-primary pull-right"%>
                  <%end%>
-
+                <%= link_to "取消",case_path(cases,:case =>{:status => "cancel"}),:method => :patch,:class => "btn btn-danger pull-right"%>
             <%else%>
 
                 <%if cases.status == "booking" %>

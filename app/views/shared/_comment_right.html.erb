@@ -1,13 +1,23 @@
-
-
-	<div class="media ">
-		<div class="media-body blockquote-reverse well">
-		  <h4 class="media-heading"> <%=comment.comment%></h4>
- 		</div>
-		<div class="media-right">
-			<%= image_tag comment.user.profile.image.thumb,:class => "img-circle" %>
+		<div class="row chat-right">
+			<div class="col-xs-3 col-sm-2 pull-right">
+				<%= image_tag comment.user.profile.image.thumb,:class => "img-circle" %>
+			</div>
+			<div class="col-xs-9 col-sm-10 pull-right">
+				<div class="text-box pull-right">
+					<div class="box-heading">
+						<div class="pull-right clearfix">
+							<h4 class="text-right"><%=comment.user.profile.last_name%></h4>
+						</div>
+						<div class="clearfix">
+							<h4 class="text-left"><%=distance_of_time_in_words_to_now(comment.created_at)%> ago</h4>
+						</div>
+					</div>
+					<div class="box-body text-right">
+						<%=comment.comment%>
+					</div>
+				</div>
+			</div>
 		</div>
-
-	</div>
+		<hr>
 
 

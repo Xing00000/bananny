@@ -1,14 +1,23 @@
-
-
-	<div class="media ">
-		<div class="media-left">
-			<%= image_tag comment.user.profile.image.thumb,:class => "img-circle" %>
+		<div class="row chat-left">
+			<div class="col-xs-3 col-sm-2 pull-left">
+				<%= image_tag comment.user.profile.image.thumb,:class => "img-circle" %>
+			</div>
+			<div class="col-xs-9 col-sm-10 pull-left">
+				<div class="text-box pull-left">
+					<div class="box-heading">
+						<div class="pull-left clearfix">
+							<h4 class="text-left"><%=comment.user.profile.last_name%></h4>
+						</div>
+						<div class="clearfix">
+							<h4 class="text-right"><%=distance_of_time_in_words_to_now(comment.created_at)%> ago</h4>
+						</div>
+					</div>
+					<div class="box-body text-left">
+						<%=comment.comment%>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="media-body well">
-		  <h4 class="media-heading"> <%=comment.comment%></h4>
- 		</div>
 
-
-	</div>
-
+		<hr>
 
