@@ -43,25 +43,25 @@
 					<div class="row">
 						<div class="col-sm-3 col-xs-6">
 							<div class="info-box">
-								<h3><%=@nanny.ratings.count%></h3>
+								<h3><%=@nanny.ratings.count ? @nanny.ratings.count : 0 %></h3>
 	          			<p class="text-muted">這麼多爸媽都評價了<%= @nanny.last_name %>保母。</p>
 	       			</div>
 						</div>
 						<div class="col-sm-3 col-xs-6">
 							<div class="info-box">
-								<h3><%=@nanny.info.age_0_to_1_cases_done%></h3>
+								<h3><%=@nanny.info.age_0_to_1_cases_done ? @nanny.info.age_0_to_1_cases_done : 0 %></h3>
 	          			<p class="text-muted">完成一歲以下的寶寶托育案件次數</p>
 	       			</div>
 						</div>
 						<div class="col-sm-3 col-xs-6">
 							<div class="info-box">
-								<h3><%=@nanny.info.age_1_to_5_cases_done%></h3>
+								<h3><%=@nanny.info.age_1_to_5_cases_done ? @nanny.info.age_1_to_5_cases_done : 0 %></h3>
 	          			<p class="text-muted">完成一歲到五歲的寶寶托育案件次數</p>
 	       			</div>
 						</div>
 						<div class="col-sm-3 col-xs-6">
 							<div class="info-box">
-								<h3><%= distance_of_time_in_words_to_now(@nanny.info.since)%></h3>
+								<h3><%= time_of_experience(@nanny.info.since)%></h3>
 	          			<p class="text-muted">托育經驗</p>
 	       			</div>
 						</div>

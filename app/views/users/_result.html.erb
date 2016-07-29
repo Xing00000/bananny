@@ -14,7 +14,7 @@
                       <%= render "shared/rate_star" %>
                     </div>
                     <div class="rating-times pull-left">
-                      <h4>(<%= nanny.info.case_done%>5)</h4>
+                      <h4>(<%= nanny.info.case_done ? nanny.info.case_done : 0%>)</h4>
                     <div>
                   </th>
 
@@ -37,7 +37,7 @@
                 </tr>
                 <tr>
                   <td>拖育經驗</td>
-                  <td><%= distance_of_time_in_words_to_now(nanny.info.since)%></td>
+                  <td><%= time_of_experience(nanny.info.since)%></td>
 
                 </tr>
                 <tr>
