@@ -7,7 +7,7 @@ class CasesController < ApplicationController
 	def create
 		@nanny = Nanny.find_by(:id => params[:nanny_id])
 
-		if @nanny.cases.where(:start_date => session["search_nanny"]["start_date"].to_time).where(:end_date => session["search_nanny"]["end_date"].to_time).where(:status => :build).first == nil
+		if @nanny.cases.where(:start_date => session_start_date(session["search_nanny"])).where(:end_date => session_end_date(session["search_nanny"])).where(:status => :build).or(@nanny.cases.where(:start_date => session_start_date(session["search_nanny"])).where(:end_date => session_end_date(session["search_nanny"])).where(:status => :booking)).first == nil
 
 			@case = @nanny.cases.create!(
 				:emergency_number => current_user.profile.mobile_phone,
@@ -16,13 +16,13 @@ class CasesController < ApplicationController
 		    :district => current_user.profile.district,
 		    :address => current_user.profile.address,
 		    :parent_id => current_user.parent.id,
-		    :start_date => session["search_nanny"]["start_date"].to_time,
-		    :end_date => session["search_nanny"]["end_date"].to_time,
+		    :start_date => session_start_date(session["search_nanny"]),
+		    :end_date => session_end_date(session["search_nanny"]),
 		    :status => "build",
 		    :charge_per_hour => @nanny.info.weekday_charge)
 			redirect_to case_path(@case)
 		else
-			redirect_to @nanny.cases.where(:start_date => session["search_nanny"]["start_date"].to_time,:end_date => session["search_nanny"]["end_date"].to_time).where(:status => :build).first
+			redirect_to @nanny.cases.where(:start_date => session_start_date(session["search_nanny"])).where(:end_date => session_end_date(session["search_nanny"])).where(:status => :build).or(@nanny.cases.where(:start_date => session_start_date(session["search_nanny"])).where(:end_date => session_end_date(session["search_nanny"])).where(:status => :booking)).first
 		end
 	end
 
@@ -32,15 +32,17 @@ class CasesController < ApplicationController
 
 	def show
 		@cases = Case.find(params[:id])
-		@new_comment = @case.comments.new
-		@comments = @cases.comments
+		if current_user.profile.cases.find(@cases)
+			@new_comment = @case.comments.new
+			@comments = @cases.comments.order(created_at: :desc)
+		end
 	end
 
 	def update
     respond_to do |format|
       if @case.update(case_params)
         if @case.status == "cancel"
-        	format.html { redirect_to cases_path, notice: '取消' }
+        	format.html { redirect_to cases_path, notice: '案件已取消' }
       	else
       		format.html { redirect_to @case, notice: 'case was successfully updated.' }
       	end

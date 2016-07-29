@@ -46,5 +46,17 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+	def session_start_date(session)
+		(session["date"] + " " + session["start_date"]).to_time
+	end
+
+	def session_end_date(session)
+		(session["date"] + " " + session["end_date"]).to_time
+	end
+
+	def session_count(session)
+		(end_date(session)-start_date(session))/1800
+	end
+
 
 end

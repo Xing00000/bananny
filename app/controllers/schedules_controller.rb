@@ -88,8 +88,11 @@ class SchedulesController < ApplicationController
       if schedules.count == count
         schedules.update_all(:text => @case.parent.nickname ,:case_id => @case.id)
         @case.update(:status => "success")
+        redirect_to cases_path
+      else
+        redirect_to cases_path , notice: '重複預約.'
       end
-      redirect_to cases_path
+
     end
 
 
