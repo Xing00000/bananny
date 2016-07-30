@@ -38,9 +38,9 @@ class ApplicationController < ActionController::Base
 	end
 
 	def user_should_be_registered
-	# 	if current_user != nil && current_user.registered? == nil
-	# 		redirect_to registered_user_path(current_user)
-	# 	end
+		if current_user != nil && current_user.registered? == nil
+			redirect_to registered_user_path(current_user)
+		end
 	end
 
 	def session_start_date(session)
