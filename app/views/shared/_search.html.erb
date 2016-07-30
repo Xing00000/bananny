@@ -12,9 +12,13 @@
 			<div class="end-date">
 				<%= text_field_tag :end_date,"#{session["search_nanny"]["end_date"] if session["search_nanny"]}" ,"id" => "datetimepicker3",:required => :true ,:placeholder => "結束時間",:autocomplete =>"off" %>
 			</div>
+
+
 			<div class="area">
 				<%= select :district,:district,Profile::DISTRICT,:required => :true ,:placeholder => "請輸入區域",:autocomplete =>"off" %>
 			</div>
+
+
 			<div class="submit-search">
 				<%= submit_tag "搜尋" ,:class => "btn btn-search" %>
 			</div>
