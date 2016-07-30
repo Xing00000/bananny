@@ -1,5 +1,5 @@
 <%comments.each do |c|%>
-	<%if current_user == c.user %>
+	<%if nil %>
 		<div class="row chat-right">
 			<div class="col-xs-3 col-sm-2 pull-right">
 				<%= image_tag c.user.profile.image.thumb,:class => "img-circle" %>
@@ -21,7 +21,7 @@
 			</div>
 		</div>
 		<hr>
-	<%else%>
+	<%end%>
 		<div class="row chat-left">
 			<div class="col-xs-3 col-sm-2 pull-left">
 				<%= image_tag c.user.profile.image.thumb,:class => "img-circle" %>
@@ -44,5 +44,5 @@
 		</div>
 
 		<hr>
-	<%end%>
+
 <%end%>
