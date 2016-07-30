@@ -7,3 +7,4 @@ App.comments = App.cable.subscriptions.create "CommentsChannel",
 
   received: (data) ->
     $('#comments').prepend data.comment
+    $('#comment_comment').val("")
