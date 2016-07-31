@@ -11,6 +11,8 @@
     <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'dhtmlxscheduler', 'data-turbolinks-track' => true %>
     <%= action_cable_meta_tag %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.1.1/jquery.rateyo.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.1.1/jquery.rateyo.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
@@ -27,4 +29,14 @@
   </div>
 
   </body>
+  <script type="text/javascript">
+  $(function () {
+
+  $("#rateYo<%=current_user.id%>").rateYo({
+    rating: <%=5%>,
+    readOnly: true
+  });
+
+});
+</script>
 </html>
