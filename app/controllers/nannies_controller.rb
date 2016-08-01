@@ -15,6 +15,8 @@ class NanniesController < ApplicationController
   def show
     @schedule = Schedule.new
     @nanny_schedule = @nanny.schedules
+    @ratings = @nanny.ratings
+    @rating = @ratings.first
 
   end
 
