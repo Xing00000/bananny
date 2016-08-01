@@ -14,7 +14,7 @@ App.comments = App.cable.subscriptions.create({
   disconnected: function() {},
   received: function(data) {
     $('#comments').prepend(data.comment);
-    return $('#comment_comment').val("");
+
   }
 });
 
