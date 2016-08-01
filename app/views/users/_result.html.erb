@@ -2,7 +2,7 @@
   <div class="col-md-12">
       <div class="media">
         <div class="media-left col-md-3 col-sm-12">
-            <%= image_tag nanny.image.medium ,:class=>"img-circle"%>
+            <%= image_tag nanny.image.medium ,size: "115x115",:class=>"img-circle"%>
         </div>
 
         <div class="media-body">
@@ -11,7 +11,7 @@
                   <th><h2><%= nanny.last_name %> 保母</h2></th>
                   <th>
                     <div class="rate-start pull-left">
-                      <%= render "shared/rate_star" %>
+                      <div class="rateYo_nanny"></div>
                     </div>
                     <div class="rating-times pull-left">
                       <h4>(<%= nanny.info.case_done ? nanny.info.case_done : 0%>)</h4>
@@ -55,4 +55,19 @@
       </div>
 
   </div>
+<script type="text/javascript">
+$(function () {
 
+
+  $("#rateYo<%=current_user.id%>").rateYo({
+    rating: <%=5%>,
+    readOnly: true
+  });
+
+   $(".rateYo_nanny").rateYo({
+    rating: <%=5%>,
+    readOnly: true
+  });
+});
+
+</script>
