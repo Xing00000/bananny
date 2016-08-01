@@ -7,14 +7,14 @@ class CommentsChannel < ApplicationCable::Channel
       # CommentsController.render(:json => comment.to_json )
   end
   def subscribed
-    # c = Case.find(params[:case_id])
-    # stream_for c
+    c = Case.find(params[:case_id])
+    stream_for c
 
-    Case.all.each do |a|
-      stream_for a
-    end
+    # Case.all.each do |a|
+    #   stream_for a
+    # end
     # stream_for comment.case
-    # stream_from
+    # stream_from "comments_#{params[:case_id]}"
   end
 
   def unsubscribed
