@@ -5,7 +5,10 @@ class CommentsController < ApplicationController
 		if current_user == @case.parent.user || current_user == @case.nanny.user
 			@comment = @case.comments.create!(:comment => comment_params[:comment],:user_id => current_user.id	)
 
-			CommentsChannel.broadcast(@comment)
+
+			html = ApplicationController.renderer.render(:partial => "shared/comment_left",:locals => { comment: @comment})
+			ActionCable.server.broadcast "comments_#{@comment.case_id}", { :comment => html }
+			# CommentsChannel.broadcast(@comment)
 		end
 		respond_to do |format|
       format.html { redirect_to @case }
