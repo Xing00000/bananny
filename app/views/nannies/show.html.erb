@@ -172,7 +172,7 @@
 								<h5>爸媽評價</h5>
 							</td>
 							<td>
-								<p class="text-muted"></p>
+								<p class="text-muted"><%=@rating.feedback if @rating %></p>
 							</td>
 						</tr>
 					</table>
@@ -209,7 +209,7 @@
 
 <%end%>
 
- <script type="text/javascript">
+ <script>
 $(function () {
 
   $("#rateYo_nanny_<%=@nanny.user.id%>").rateYo({
