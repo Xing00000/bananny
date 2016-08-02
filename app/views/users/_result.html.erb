@@ -11,7 +11,7 @@
                   <th><h2><%= nanny.last_name %> 保母</h2></th>
                   <th>
                     <div class="rate-start pull-left">
-                      <%if [20].include?(nanny.id) %>
+                      <%if [20,24].include?(nanny.id) %>
                         <%=image_tag("icon_mainpage_star01.png")%>
                       <%elsif [19].include?(nanny.id) %>
                         <%=image_tag("icon_mainpage_star02.png")%>

@@ -25,7 +25,7 @@
 							<h2><%= @nanny.last_name %> 保母</h2>
 						</div>
 						<div class="rate-start">
-							<%if [20].include?(@nanny.id) %>
+							<%if [20,24].include?(@nanny.id) %>
                 <%=image_tag("icon_mainpage_star01.png")%>
               <%elsif [19].include?(@nanny.id) %>
                 <%=image_tag("icon_mainpage_star02.png")%>
