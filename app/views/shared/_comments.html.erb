@@ -30,7 +30,7 @@
 				<div class="text-box pull-left">
 					<div class="box-heading">
 						<div class="pull-left clearfix">
-							<h4 class="text-left"><%=c.user.profile.last_name%>  <%=c.user.profile.type == "Nanny" ? "保母" : "家長" %> </h4>
+							<h4 class="text-left"><%=c.user.profile.last_name%>  <%=c.user.profile.type == "Nanny" ? "保母" : c.user.profile.gender =="FEMALE"? "媽咪" : "爹地"  %> </h4>
 						</div>
 						<div class="clearfix">
 							<h4 class="text-right"><%=distance_of_time_in_words_to_now(c.created_at)%> ago</h4>

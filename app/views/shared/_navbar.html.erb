@@ -59,7 +59,7 @@
 
 										<div class="last-name pull-left">
 											<%if current_user.registered? %>
-												<h2><%= current_user.profile.last_name %></h2>
+												<h2><%=current_user.profile.last_name%>  <%=current_user.profile.type == "Nanny" ? "保母" : current_user.profile.gender =="FEMALE"? "媽咪" : "爹地"  %> </h2>
 											<%else%>
 
 											<%end%>
