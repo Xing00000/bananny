@@ -11,7 +11,13 @@
                   <th><h2><%= nanny.last_name %> 保母</h2></th>
                   <th>
                     <div class="rate-start pull-left">
-                      <%=image_tag("icon_mainpage_star01.png")%>
+                      <%if [20].include?(nanny.id) %>
+                        <%=image_tag("icon_mainpage_star01.png")%>
+                      <%elsif [19].include?(nanny.id) %>
+                        <%=image_tag("icon_mainpage_star02.png")%>
+                      <%else%>
+                        <%=image_tag("icon_mainpage_star03.png")%>
+                      <%end %>
                     </div>
                     <div class="rating-times pull-left">
                       (<%= nanny.info.age_0_to_1_cases_done ? nanny.info.age_0_to_1_cases_done : 0%>)
