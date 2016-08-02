@@ -6,7 +6,7 @@
 				<div class="text-box pull-left">
 					<div class="box-heading">
 						<div class="pull-left clearfix">
-							<h4 class="text-left"><%=comment.user.profile.last_name%></h4>
+							<h4 class="text-left"><%=comment.user.profile.last_name%>  <%=comment.user.profile.type == "Nanny" ? "保母" : "家長" %></h4>
 						</div>
 						<div class="clearfix">
 							<h4 class="text-right"><%=distance_of_time_in_words_to_now(comment.created_at)%> ago</h4>
