@@ -1,4 +1,5 @@
 class CasesController < ApplicationController
+	before_action :authenticate_user!
 	before_action :set_case, only: [:show, :edit, :update]
 	def index
 		@cases = current_user.profile.cases.where(:status => [:build,:booking,:success]).order(updated_at: :desc)

@@ -1,9 +1,12 @@
+$(document).ready(function() {
+console.log("ready!");
 var cases;
 var case_id;
 cases_html = document.location.pathname.split('/')[1];
-case_id = document.location.pathname.split("/")[2]
+case_id = document.location.pathname.split("/")[2];
+console.log($('#comment_comment').length);
 console.log(cases_html);console.log(case_id);
-if (cases_html === "cases" && case_id != null) {
+if ($('#comment_comment').length > 0) {
 
 
 App.comments = App.cable.subscriptions.create({
@@ -20,3 +23,4 @@ App.comments = App.cable.subscriptions.create({
 
 
 }
+});

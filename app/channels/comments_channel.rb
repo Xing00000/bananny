@@ -14,7 +14,9 @@ class CommentsChannel < ApplicationCable::Channel
     #   stream_for a
     # end
     # stream_for comment.case
-    stream_from "comments_#{params[:case_id]}"
+
+      stream_from "comments_#{params[:case_id]}"
+
   end
 
   def unsubscribed
