@@ -6,8 +6,8 @@
 			<div class="start_date">
 				<%= text_field_tag :start_date,"#{session["search_nanny"]["start_date"] if session["search_nanny"]}" ,"id" => "datetimepicker2",:required => :true ,:placeholder => "開始時間",:autocomplete =>"off" %>
 			</div>
-			<div class="greater-than">
-
+			<div class="greater-than pull-left">
+				<%=image_tag("icon_mainpage_to.png",size:"10x20")%>
 			</div>
 			<div class="end-date">
 				<%= text_field_tag :end_date,"#{session["search_nanny"]["end_date"] if session["search_nanny"]}" ,"id" => "datetimepicker3",:required => :true ,:placeholder => "結束時間",:autocomplete =>"off" %>

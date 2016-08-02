@@ -11,10 +11,10 @@
                   <th><h2><%= nanny.last_name %> 保母</h2></th>
                   <th>
                     <div class="rate-start pull-left">
-                      <div class="rateYo_nanny"></div>
+                      <%=image_tag("icon_mainpage_star01.png")%>
                     </div>
                     <div class="rating-times pull-left">
-                      <h4>(<%= nanny.info.case_done ? nanny.info.case_done : 0%>)</h4>
+                      (<%= nanny.info.case_done ? nanny.info.case_done : 0%>)
                     <div>
                   </th>
 
