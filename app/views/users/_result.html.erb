@@ -14,7 +14,7 @@
                       <%=image_tag("icon_mainpage_star01.png")%>
                     </div>
                     <div class="rating-times pull-left">
-                      (<%= nanny.info.case_done ? nanny.info.case_done : 0%>)
+                      (<%= nanny.info.age_0_to_1_cases_done ? nanny.info.age_0_to_1_cases_done : 0%>)
                     <div>
                   </th>
 
@@ -42,7 +42,7 @@
                 </tr>
                 <tr>
                   <td>爸媽評價</td>
-                  <td><%=nanny.ratings ? nanny.ratings.count : 0 %> 個評價</td>
+                  <td><%= nanny.info.age_0_to_1_cases_done ? nanny.info.age_0_to_1_cases_done : 0%> 個評價</td>
 
                 </tr>
 
