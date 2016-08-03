@@ -1,7 +1,7 @@
 class NanniesController < ApplicationController
   before_action :authenticate_user!
   before_action :user_should_be_registered ,:except=>[:new,:create]
-  before_action :set_nanny, only: [:show, :edit, :update, :destroy,:data]
+  before_action :set_nanny, only: [:edit, :update, :destroy,:data]
 
 
   # GET /nannies
@@ -13,10 +13,11 @@ class NanniesController < ApplicationController
   # GET /nannies/1
   # GET /nannies/1.json
   def show
+    @nanny = Nanny.includes(:schedules).find(params[:id])
     @schedule = Schedule.new
     @nanny_schedule = @nanny.schedules
-    @ratings = @nanny.ratings
-    @rating = @ratings.first
+    # @ratings = @nanny.ratings
+    # @rating = @ratings.first
 
   end
 

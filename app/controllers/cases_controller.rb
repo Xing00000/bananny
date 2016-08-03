@@ -32,7 +32,7 @@ class CasesController < ApplicationController
 	end
 
 	def show
-		@cases = Case.find(params[:id])
+		@cases = Case.includes(:comments).find(params[:id])
 		if current_user.profile.cases.find(@cases)
 			@new_comment = @case.comments.new
 			@comments = @cases.comments.order(created_at: :desc)
